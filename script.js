@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         behavior: prefersReducedMotion ? 'auto' : 'smooth',
         block: 'start'
       });
-      // Move focus for keyboard/screen-reader users after scroll
       target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
     });
@@ -73,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-          // slight stagger for elements revealing together
           setTimeout(() => {
             entry.target.classList.add('is-visible');
           }, (index % 4) * 80);
