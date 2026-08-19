@@ -452,4 +452,458 @@
 
 <script src="script.js"></script>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[YOUR NAME] — Portfolio</title>
+<meta name="description" content="[SHORT INTRODUCTION] — UI/UX portfolio of [YOUR NAME].">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN build) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.13/tailwind.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg:      '#0A0908',
+          surface: '#141210',
+          card:    '#1A1715',
+          text:    '#F4F1EC',
+          muted:   '#8F887F',
+          accent:  '#C81E1E',
+          accentDim: '#5A0F0F',
+          brdr:    'rgba(244,241,236,0.10)',
+        },
+        fontFamily: {
+          display: ['"Bebas Neue"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          script: ['Caveat', 'cursive'],
+        },
+        letterSpacing: {
+          widest2: '0.22em',
+        },
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-bg text-text font-body antialiased">
+
+<!-- Skip link for accessibility -->
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============================= -->
+<!-- HEADER -->
+<!-- ============================= -->
+<header class="sticky top-0 z-50 bg-bg/90 backdrop-blur border-b border-brdr">
+  <nav class="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between" aria-label="Primary">
+
+    <!-- Left: role / title -->
+    <div class="leading-tight">
+      <!-- EDIT: Your role / specialization -->
+      <p class="text-accent text-xs tracking-widest2 font-semibold uppercase">[ROLE / SPECIALIZATION]</p>
+      <!-- EDIT: Your name or secondary title -->
+      <p class="text-[13px] md:text-sm text-muted uppercase tracking-wide">[NAME OR TITLE]</p>
+    </div>
+
+    <!-- Desktop nav links -->
+    <ul class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest2 text-muted">
+      <li><a href="#work" class="nav-link hover:text-text transition-colors duration-300">Work</a></li>
+      <li><a href="#about" class="nav-link hover:text-text transition-colors duration-300">About</a></li>
+      <li><a href="#process" class="nav-link hover:text-text transition-colors duration-300">Process</a></li>
+      <li><a href="#contact" class="nav-link hover:text-text transition-colors duration-300">Contact</a></li>
+    </ul>
+
+    <!-- Right: availability -->
+    <div class="hidden md:flex items-center gap-3">
+      <!-- EDIT: Availability status -->
+      <span class="text-[11px] md:text-xs uppercase tracking-widest2 text-muted">Available for Projects</span>
+      <span class="plus-mark text-accent" aria-hidden="true">+</span>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="menuToggle" class="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-[6px] focus-ring" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="hamburger-bar w-6 h-[2px] bg-text block"></span>
+      <span class="hamburger-bar w-6 h-[2px] bg-text block"></span>
+      <span class="hamburger-bar w-4 h-[2px] bg-text block self-end"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-400 ease-out border-t border-brdr bg-surface">
+    <ul class="flex flex-col px-6 py-4 gap-4 text-sm uppercase tracking-widest2 text-muted">
+      <li><a href="#work" class="mobile-link">Work</a></li>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#process" class="mobile-link">Process</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li class="flex items-center gap-2 pt-2 text-[11px] text-muted">
+        <span class="plus-mark text-accent" aria-hidden="true">+</span>
+        Available for Projects
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================= -->
+  <!-- HERO -->
+  <!-- ============================= -->
+  <section class="relative overflow-hidden px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-28" aria-label="Introduction">
+    <div class="max-w-[1400px] mx-auto relative">
+
+      <!-- Background typography -->
+      <div class="hero-bg-type select-none" aria-hidden="true">PORTFOLIO</div>
+
+      <div class="relative grid md:grid-cols-[1fr_1.1fr_1fr] gap-10 md:gap-6 items-end">
+
+        <!-- Left content -->
+        <div class="reveal order-2 md:order-1 z-10">
+          <p class="font-script text-accent text-3xl md:text-4xl mb-2">Hello, I'm</p>
+          <!-- EDIT: Your name -->
+          <h1 class="font-display text-[15vw] leading-[0.85] md:text-6xl lg:text-7xl uppercase tracking-tight">[YOUR<br>NAME]</h1>
+          <!-- EDIT: Your role -->
+          <p class="font-display text-2xl md:text-3xl text-accent uppercase tracking-wide mt-2">[YOUR ROLE]</p>
+
+          <!-- EDIT: Short introduction -->
+          <p class="text-muted text-sm md:text-[15px] leading-relaxed mt-6 max-w-sm">
+            [SHORT INTRODUCTION — one or two sentences describing your practice, focus, and what drives your work.]
+          </p>
+
+          <!-- EDIT: Location -->
+          <div class="flex items-center gap-2 mt-6 text-xs uppercase tracking-widest2 text-muted">
+            <span class="location-pin" aria-hidden="true"></span>
+            [LOCATION]
+          </div>
+        </div>
+
+        <!-- Center visual -->
+        <div class="reveal order-1 md:order-2 relative z-10">
+          <div class="hero-image-frame relative mx-auto aspect-[3/4] max-w-[420px] md:max-w-none">
+            <!-- EDIT: Replace with your profile/hero image -->
+            <img
+              src="assets/profile-image.png"
+              alt="[YOUR NAME] — profile photo"
+              class="w-full h-full object-cover"
+              onerror="this.closest('.hero-image-frame').classList.add('img-fallback')">
+            <div class="img-fallback-label" aria-hidden="true">
+              <span>Profile Image</span>
+              <span class="text-[11px] text-muted normal-case">assets/profile-image.png</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right content -->
+        <div class="reveal order-3 z-10 flex flex-col gap-6 md:pl-4">
+          <div class="flex items-start gap-4">
+            <span class="plus-mark plus-mark--lg text-accent shrink-0" aria-hidden="true">+</span>
+            <!-- EDIT: Value statement -->
+            <p class="font-display text-xl md:text-2xl uppercase leading-tight tracking-wide">
+              Turning ideas into meaningful digital experiences
+            </p>
+          </div>
+          <!-- EDIT: Value points -->
+          <ul class="flex flex-col gap-3 text-sm text-muted">
+            <li class="flex items-center gap-3"><span class="text-accent">+</span> User-Centered Design</li>
+            <li class="flex items-center gap-3"><span class="text-accent">+</span> Responsive Interfaces</li>
+            <li class="flex items-center gap-3"><span class="text-accent">+</span> Creative Problem Solving</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- PROJECTS -->
+  <!-- ============================= -->
+  <section id="work" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Selected projects">
+    <div class="max-w-[1400px] mx-auto">
+
+      <div class="reveal flex items-end justify-between mb-12 md:mb-16">
+        <h2 class="font-display text-4xl md:text-5xl uppercase tracking-tight">Selected Projects</h2>
+        <span class="hidden md:block text-xs uppercase tracking-widest2 text-muted">01 — 04</span>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
+
+        <!-- Project card template x4 -->
+        <!-- EDIT: Project information -->
+        <article class="reveal project-card group" tabindex="0">
+          <div class="project-image">
+            <img src="assets/project-01.png" alt="[PROJECT 1 NAME] preview" loading="lazy"
+                 onerror="this.closest('.project-image').classList.add('img-fallback')">
+            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
+          </div>
+          <div class="flex items-start justify-between mt-4">
+            <div>
+              <h3 class="font-display text-xl uppercase tracking-wide">[Project Name]</h3>
+              <p class="text-muted text-xs mt-1">[Project Category]</p>
+            </div>
+            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
+              01 <span class="project-arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal project-card group" tabindex="0">
+          <div class="project-image">
+            <img src="assets/project-02.png" alt="[PROJECT 2 NAME] preview" loading="lazy"
+                 onerror="this.closest('.project-image').classList.add('img-fallback')">
+            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
+          </div>
+          <div class="flex items-start justify-between mt-4">
+            <div>
+              <h3 class="font-display text-xl uppercase tracking-wide">[Project Name]</h3>
+              <p class="text-muted text-xs mt-1">[Project Category]</p>
+            </div>
+            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
+              02 <span class="project-arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal project-card group" tabindex="0">
+          <div class="project-image">
+            <img src="assets/project-03.png" alt="[PROJECT 3 NAME] preview" loading="lazy"
+                 onerror="this.closest('.project-image').classList.add('img-fallback')">
+            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
+          </div>
+          <div class="flex items-start justify-between mt-4">
+            <div>
+              <h3 class="font-display text-xl uppercase tracking-wide">[Project Name]</h3>
+              <p class="text-muted text-xs mt-1">[Project Category]</p>
+            </div>
+            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
+              03 <span class="project-arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal project-card group" tabindex="0">
+          <div class="project-image">
+            <img src="assets/project-04.png" alt="[PROJECT 4 NAME] preview" loading="lazy"
+                 onerror="this.closest('.project-image').classList.add('img-fallback')">
+            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
+          </div>
+          <div class="flex items-start justify-between mt-4">
+            <div>
+              <h3 class="font-display text-xl uppercase tracking-wide">[Project Name]</h3>
+              <p class="text-muted text-xs mt-1">[Project Category]</p>
+            </div>
+            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
+              04 <span class="project-arrow" aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- EDUCATION & SKILLS / WORK PROCESS / QUOTE -->
+  <!-- ============================= -->
+  <section id="about" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Education, skills, and process">
+    <div class="max-w-[1400px] mx-auto grid lg:grid-cols-[1fr_1fr_0.8fr] gap-12 lg:gap-8">
+
+      <!-- LEFT: Education & Skills -->
+      <div class="reveal">
+        <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tight mb-8">Education &amp; Skills</h2>
+
+        <h3 class="text-accent text-xs uppercase tracking-widest2 font-semibold mb-4">Education</h3>
+        <!-- EDIT: Education entries -->
+        <div class="flex flex-col gap-5 mb-10">
+          <div class="flex items-baseline justify-between border-b border-brdr pb-3">
+            <div>
+              <p class="font-medium">[DEGREE / PROGRAM]</p>
+              <p class="text-muted text-sm">[INSTITUTION]</p>
+            </div>
+            <span class="text-accent text-sm whitespace-nowrap ml-4">[YEAR]</span>
+          </div>
+          <div class="flex items-baseline justify-between border-b border-brdr pb-3">
+            <div>
+              <p class="font-medium">[SECOND EDUCATION]</p>
+              <p class="text-muted text-sm">[INSTITUTION]</p>
+            </div>
+            <span class="text-accent text-sm whitespace-nowrap ml-4">[YEAR]</span>
+          </div>
+        </div>
+
+        <h3 class="text-accent text-xs uppercase tracking-widest2 font-semibold mb-4">Skills</h3>
+        <!-- EDIT: Skills list -->
+        <ul class="flex flex-wrap gap-2.5">
+          <li class="skill-pill">HTML</li>
+          <li class="skill-pill">CSS</li>
+          <li class="skill-pill">JavaScript</li>
+          <li class="skill-pill">React</li>
+          <li class="skill-pill">UI/UX</li>
+          <li class="skill-pill">Figma</li>
+          <li class="skill-pill">Python</li>
+          <li class="skill-pill">Java</li>
+          <li class="skill-pill">MySQL</li>
+          <li class="skill-pill">Power BI</li>
+          <li class="skill-pill">Problem Solving</li>
+        </ul>
+      </div>
+
+      <!-- CENTER: Work Process -->
+      <div id="process" class="reveal">
+        <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tight mb-8">Work Process</h2>
+
+        <ol class="process-list">
+          <li class="process-step">
+            <span class="process-dot">01</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Discover</p>
+              <p class="text-muted text-sm">Research &amp; Analysis</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-dot">02</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Plan</p>
+              <p class="text-muted text-sm">User Flow &amp; Wireframes</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-dot">03</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Design</p>
+              <p class="text-muted text-sm">High-Fidelity UI</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-dot">04</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Prototype</p>
+              <p class="text-muted text-sm">Interactive Testing</p>
+            </div>
+          </li>
+          <li class="process-step">
+            <span class="process-dot">05</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Refine</p>
+              <p class="text-muted text-sm">Feedback &amp; Improvements</p>
+            </div>
+          </li>
+          <li class="process-step process-step--last">
+            <span class="process-dot">06</span>
+            <div>
+              <p class="font-display text-lg uppercase tracking-wide text-accent">Deliver</p>
+              <p class="text-muted text-sm">Final Design / Handoff</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- RIGHT: Quote -->
+      <div class="reveal quote-panel">
+        <span class="quote-mark" aria-hidden="true">&#8220;</span>
+        <!-- EDIT: Personal philosophy quote -->
+        <p class="font-display text-2xl md:text-3xl uppercase leading-tight mb-6">
+          [Your personal design / development philosophy]
+        </p>
+        <!-- EDIT: Your name -->
+        <p class="font-script text-accent text-3xl mb-8">[Your Name]</p>
+        <p class="text-sm uppercase tracking-widest2 text-muted">Let's create something great together.</p>
+        <span class="plus-mark text-accent mt-4 inline-block" aria-hidden="true">+</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- CONTACT -->
+  <!-- ============================= -->
+  <footer id="contact" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Contact">
+    <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left -->
+      <div class="reveal">
+        <div class="flex items-start gap-4 mb-6">
+          <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.9] tracking-tight">
+            Let's Work<br>Together
+          </h2>
+          <span class="plus-mark plus-mark--lg text-accent mt-2" aria-hidden="true">+</span>
+        </div>
+        <!-- EDIT: Contact / freelance message -->
+        <p class="text-muted text-sm md:text-[15px] max-w-sm leading-relaxed mb-8">
+          [SHORT CONTACT / FREELANCE MESSAGE — a brief line about your availability and the kind of work you're looking for.]
+        </p>
+        <a href="#contact-details" class="cta-link">
+          <span class="cta-arrow" aria-hidden="true">→</span>
+          Available for Freelance
+        </a>
+      </div>
+
+      <!-- Right -->
+      <div class="reveal grid gap-1" id="contact-details">
+        <!-- EDIT: Email -->
+        <a href="mailto:youremail@example.com" class="contact-row focus-ring">
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5 12 13l9-6.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+          </span>
+          <span>[YOUR EMAIL]</span>
+        </a>
+        <!-- EDIT: Behance -->
+        <a href="#" class="contact-row focus-ring">
+          <span class="contact-icon" aria-hidden="true">Be</span>
+          <span>[YOUR BEHANCE]</span>
+        </a>
+        <!-- EDIT: LinkedIn -->
+        <a href="#" class="contact-row focus-ring">
+          <span class="contact-icon" aria-hidden="true">in</span>
+          <span>[YOUR LINKEDIN]</span>
+        </a>
+        <!-- EDIT: Dribbble -->
+        <a href="#" class="contact-row focus-ring">
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M4 9.5c4 1.4 9 1.2 15.3-.4M3 15c5-1.4 12-1.8 17.5.7M9 4c3.2 4.6 4.6 10.8 3.6 16" stroke-linecap="round"/></svg>
+          </span>
+          <span>[YOUR DRIBBBLE]</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ============================= -->
+    <!-- DEVICE MOCKUP -->
+    <!-- ============================= -->
+    <div class="reveal max-w-[1400px] mx-auto mt-16 md:mt-20 flex justify-center lg:justify-end">
+      <div class="device-mockup">
+        <div class="device-screen">
+          <!-- EDIT: Optional device/laptop mockup image -->
+          <img src="assets/device-mockup.png" alt="Portfolio preview on laptop screen"
+               onerror="this.closest('.device-mockup').classList.add('img-fallback')">
+          <div class="img-fallback-label" aria-hidden="true">
+            <span>Device Mockup</span>
+            <span class="text-[11px] text-muted normal-case">assets/device-mockup.png</span>
+          </div>
+        </div>
+        <div class="device-base"></div>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto mt-16 pt-6 border-t border-brdr flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] uppercase tracking-widest2 text-muted">
+      <!-- EDIT: Your name -->
+      <p>&copy; <span id="year"></span> [Your Name]. All rights reserved.</p>
+      <p>Built with care.</p>
+    </div>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
 </html>
