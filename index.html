@@ -11,240 +11,218 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
-<!-- Tailwind (CDN build) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.4.13/tailwind.min.js"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          bg:      '#0A0908',
-          surface: '#141210',
-          card:    '#1A1715',
-          text:    '#F4F1EC',
-          muted:   '#8F887F',
-          accent:  '#C81E1E',
-          accentDim: '#5A0F0F',
-          brdr:    'rgba(244,241,236,0.10)',
-        },
-        fontFamily: {
-          display: ['"Bebas Neue"', 'sans-serif'],
-          body: ['Inter', 'sans-serif'],
-          script: ['Caveat', 'cursive'],
-        },
-        letterSpacing: {
-          widest2: '0.22em',
-        },
-      }
-    }
-  }
-</script>
+<!-- Bootstrap 5 (CDN, no install/build step needed) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Brand tokens + custom styles (loaded after Bootstrap so it can override) -->
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-bg text-text font-body antialiased">
+<body class="font-body">
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="sticky top-0 z-50 bg-bg/90 backdrop-blur border-b border-brdr">
-  <nav class="max-w-[1400px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between" aria-label="Primary">
+<header class="sticky-top bg-blur border-bottom border-brdr">
+  <nav class="navbar navbar-expand-md container-custom section-px py-3" aria-label="Primary">
 
     <div class="leading-tight">
-      <p class="text-accent text-xs tracking-widest2 font-semibold uppercase">Business Analyst</p>
-      <p class="text-[13px] md:text-sm text-muted uppercase tracking-wide">Kimmy</p>
+      <p class="site-eyebrow text-accent tracking-widest2 mb-0">Business Analyst</p>
+      <p class="site-name text-muted tracking-wide mb-0">Kimmy</p>
     </div>
 
-    <ul class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest2 text-muted">
-      <li><a href="#work" class="nav-link hover:text-text transition-colors duration-300">Work</a></li>
-      <li><a href="#about" class="nav-link hover:text-text transition-colors duration-300">About</a></li>
-      <li><a href="#process" class="nav-link hover:text-text transition-colors duration-300">Process</a></li>
-      <li><a href="#contact" class="nav-link hover:text-text transition-colors duration-300">Contact</a></li>
-    </ul>
-
-    <div class="hidden md:flex items-center gap-3">
-      <span class="text-[11px] md:text-xs uppercase tracking-widest2 text-muted">Open for OJT / Projects</span>
-      <span class="plus-mark text-accent" aria-hidden="true">+</span>
-    </div>
-
-    <button id="menuToggle" class="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-[6px] focus-ring" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span class="hamburger-bar w-6 h-[2px] bg-text block"></span>
-      <span class="hamburger-bar w-6 h-[2px] bg-text block"></span>
-      <span class="hamburger-bar w-4 h-[2px] bg-text block self-end"></span>
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu">
+      <span class="hamburger-bar bar-1"></span>
+      <span class="hamburger-bar bar-2"></span>
+      <span class="hamburger-bar bar-3"></span>
     </button>
-  </nav>
 
-  <div id="mobileMenu" class="md:hidden max-h-0 overflow-hidden transition-all duration-400 ease-out border-t border-brdr bg-surface">
-    <ul class="flex flex-col px-6 py-4 gap-4 text-sm uppercase tracking-widest2 text-muted">
-      <li><a href="#work" class="mobile-link">Work</a></li>
-      <li><a href="#about" class="mobile-link">About</a></li>
-      <li><a href="#process" class="mobile-link">Process</a></li>
-      <li><a href="#contact" class="mobile-link">Contact</a></li>
-      <li class="flex items-center gap-2 pt-2 text-[11px] text-muted">
+    <div class="collapse navbar-collapse flex-grow-0" id="mobileMenu">
+      <ul class="navbar-nav d-flex flex-column flex-md-row align-items-md-center gap-md-4 gap-2 mt-3 mt-md-0 mb-0 tracking-widest2">
+        <li class="nav-item"><a href="#work" class="nav-link">Work</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#process" class="nav-link">Process</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="d-flex d-md-none align-items-center gap-2 mt-4 open-status text-muted tracking-widest2">
         <span class="plus-mark text-accent" aria-hidden="true">+</span>
         Open for OJT / Projects
-      </li>
-    </ul>
-  </div>
+      </div>
+    </div>
+
+    <div class="d-none d-md-flex align-items-center gap-3 ms-4">
+      <span class="open-status text-muted tracking-widest2">Open for OJT / Projects</span>
+      <span class="plus-mark text-accent" aria-hidden="true">+</span>
+    </div>
+  </nav>
 </header>
 
 <main id="main">
 
-  <section class="relative overflow-hidden px-6 md:px-10 pt-16 md:pt-24 pb-20 md:pb-28" aria-label="Introduction">
-    <div class="max-w-[1400px] mx-auto relative">
+  <section class="position-relative overflow-hidden section-px pt-5 pt-md-5 pb-5 pb-md-5" aria-label="Introduction" style="padding-top:4rem; padding-bottom:5rem;">
+    <div class="container-custom position-relative">
 
-      <div class="hero-bg-type select-none" aria-hidden="true">PORTFOLIO</div>
+      <div class="hero-bg-type" aria-hidden="true">PORTFOLIO</div>
 
-      <div class="relative grid md:grid-cols-[1fr_1.1fr_1fr] gap-10 md:gap-6 items-end">
+      <div class="row position-relative align-items-end gy-5 gy-md-4">
 
-        <div class="reveal order-2 md:order-1 z-10">
-          <p class="font-script text-accent text-3xl md:text-4xl mb-2">Hello, I'm</p>
-          <h1 class="font-display text-[15vw] leading-[0.85] md:text-6xl lg:text-7xl uppercase tracking-tight">KIMMY</h1>
-          <p class="font-display text-2xl md:text-3xl text-accent uppercase tracking-wide mt-2">Aspiring Business Analyst</p>
+        <div class="reveal col-12 col-md-5 order-2 order-md-1">
+          <p class="font-script text-accent hero-greeting mb-2">Hello, I'm</p>
+          <h1 class="font-display hero-name mb-0">KIMMY</h1>
+          <p class="font-display text-accent hero-role tracking-wide mt-2 mb-0">Aspiring Business Analyst</p>
 
-          <p class="text-muted text-sm md:text-[15px] leading-relaxed mt-6 max-w-sm">
+          <p class="text-muted hero-desc mt-4 mb-0">
             BSIT student majoring in Business Analytics at Batangas State University – TNEU, Arasof-Nasugbu Campus. I build full-stack systems and mobile apps, then use data to make them smarter.
           </p>
 
-          <div class="flex items-center gap-2 mt-6 text-xs uppercase tracking-widest2 text-muted">
+          <div class="d-flex align-items-center gap-2 mt-4 hero-location text-muted tracking-widest2">
             <span class="location-pin" aria-hidden="true"></span>
             Nasugbu, Batangas, Philippines
           </div>
         </div>
 
-        <div class="reveal order-1 md:order-2 relative z-10">
-          <div class="hero-image-frame relative mx-auto aspect-[3/4] max-w-[420px] md:max-w-none">
+        <div class="reveal col-12 col-md-4 order-1 order-md-2">
+          <div class="hero-image-frame">
             <img
               src="assets/profile-image.png"
               alt="Kimmy — profile photo"
-              class="w-full h-full object-cover"
+              class="w-100 h-100"
               onerror="this.closest('.hero-image-frame').classList.add('img-fallback')">
             <div class="img-fallback-label" aria-hidden="true">
               <span>Profile Image</span>
-              <span class="text-[11px] text-muted normal-case">assets/profile-image.png</span>
+              <span class="text-muted" style="font-size:11px; text-transform:none;">assets/profile-image.png</span>
             </div>
           </div>
         </div>
 
-        <div class="reveal order-3 z-10 flex flex-col gap-6 md:pl-4">
-          <div class="flex items-start gap-4">
-            <span class="plus-mark plus-mark--lg text-accent shrink-0" aria-hidden="true">+</span>
-            <p class="font-display text-xl md:text-2xl uppercase leading-tight tracking-wide">
-              Turning data into decisions, and ideas into working systems
-            </p>
+        <div class="reveal col-12 col-md-3 order-3">
+          <div class="d-flex flex-column gap-4 ps-md-3">
+            <div class="d-flex align-items-start gap-3">
+              <span class="plus-mark plus-mark--lg text-accent flex-shrink-0" aria-hidden="true">+</span>
+              <p class="font-display hero-highlight tracking-wide mb-0">
+                Turning data into decisions, and ideas into working systems
+              </p>
+            </div>
+            <ul class="list-unstyled d-flex flex-column gap-3 hero-list text-muted mb-0">
+              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Data-Driven Solutions</li>
+              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Full-Stack Development</li>
+              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Process Analysis &amp; Improvement</li>
+            </ul>
           </div>
-          <ul class="flex flex-col gap-3 text-sm text-muted">
-            <li class="flex items-center gap-3"><span class="text-accent">+</span> Data-Driven Solutions</li>
-            <li class="flex items-center gap-3"><span class="text-accent">+</span> Full-Stack Development</li>
-            <li class="flex items-center gap-3"><span class="text-accent">+</span> Process Analysis & Improvement</li>
-          </ul>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section id="work" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Selected projects">
-    <div class="max-w-[1400px] mx-auto">
+  <section id="work" class="section-px section-py border-top border-brdr" aria-label="Selected projects">
+    <div class="container-custom">
 
-      <div class="reveal flex items-end justify-between mb-12 md:mb-16">
-        <h2 class="font-display text-4xl md:text-5xl uppercase tracking-tight">Selected Projects</h2>
-        <span class="hidden md:block text-xs uppercase tracking-widest2 text-muted">01 — 04</span>
+      <div class="reveal d-flex align-items-end justify-content-between mb-5">
+        <h2 class="font-display section-title tracking-tight mb-0">Selected Projects</h2>
+        <span class="d-none d-md-block section-index tracking-widest2">01 — 04</span>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
 
-        <article class="reveal project-card group" tabindex="0">
-          <div class="project-image">
-            <img src="assets/project-01.png" alt="FIRESIGHT preview" loading="lazy"
-                 onerror="this.closest('.project-image').classList.add('img-fallback')">
-            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-          </div>
-          <div class="flex items-start justify-between mt-4">
-            <div>
-              <h3 class="font-display text-xl uppercase tracking-wide">FIRESIGHT</h3>
-              <p class="text-muted text-xs mt-1">Capstone — Fire Incident Reporting App</p>
+        <div class="col">
+          <article class="reveal project-card h-100" tabindex="0">
+            <div class="project-image">
+              <img src="assets/project-01.png" alt="FIRESIGHT preview" loading="lazy"
+                   onerror="this.closest('.project-image').classList.add('img-fallback')">
+              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
             </div>
-            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
-              01 <span class="project-arrow" aria-hidden="true">→</span>
+            <div class="d-flex align-items-start justify-content-between mt-3">
+              <div>
+                <h3 class="font-display project-title tracking-wide mb-1">FIRESIGHT</h3>
+                <p class="project-sub text-muted mb-0">Capstone — Fire Incident Reporting App</p>
+              </div>
+              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
+                01 <span class="project-arrow" aria-hidden="true">→</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
 
-        <article class="reveal project-card group" tabindex="0">
-          <div class="project-image">
-            <img src="assets/project-02.png" alt="Trackademic preview" loading="lazy"
-                 onerror="this.closest('.project-image').classList.add('img-fallback')">
-            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-          </div>
-          <div class="flex items-start justify-between mt-4">
-            <div>
-              <h3 class="font-display text-xl uppercase tracking-wide">Trackademic</h3>
-              <p class="text-muted text-xs mt-1">Academic Tracking App</p>
+        <div class="col">
+          <article class="reveal project-card h-100" tabindex="0">
+            <div class="project-image">
+              <img src="assets/project-02.png" alt="Trackademic preview" loading="lazy"
+                   onerror="this.closest('.project-image').classList.add('img-fallback')">
+              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
             </div>
-            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
-              02 <span class="project-arrow" aria-hidden="true">→</span>
+            <div class="d-flex align-items-start justify-content-between mt-3">
+              <div>
+                <h3 class="font-display project-title tracking-wide mb-1">Trackademic</h3>
+                <p class="project-sub text-muted mb-0">Academic Tracking App</p>
+              </div>
+              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
+                02 <span class="project-arrow" aria-hidden="true">→</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
 
-        <article class="reveal project-card group" tabindex="0">
-          <div class="project-image">
-            <img src="assets/project-03.png" alt="TeleclinicMed preview" loading="lazy"
-                 onerror="this.closest('.project-image').classList.add('img-fallback')">
-            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-          </div>
-          <div class="flex items-start justify-between mt-4">
-            <div>
-              <h3 class="font-display text-xl uppercase tracking-wide">TeleclinicMed</h3>
-              <p class="text-muted text-xs mt-1">Mobile App</p>
+        <div class="col">
+          <article class="reveal project-card h-100" tabindex="0">
+            <div class="project-image">
+              <img src="assets/project-03.png" alt="TeleclinicMed preview" loading="lazy"
+                   onerror="this.closest('.project-image').classList.add('img-fallback')">
+              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
             </div>
-            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
-              03 <span class="project-arrow" aria-hidden="true">→</span>
+            <div class="d-flex align-items-start justify-content-between mt-3">
+              <div>
+                <h3 class="font-display project-title tracking-wide mb-1">TeleclinicMed</h3>
+                <p class="project-sub text-muted mb-0">Mobile App</p>
+              </div>
+              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
+                03 <span class="project-arrow" aria-hidden="true">→</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
 
-        <article class="reveal project-card group" tabindex="0">
-          <div class="project-image">
-            <img src="assets/project-04.png" alt="Creative Dreams School Portal preview" loading="lazy"
-                 onerror="this.closest('.project-image').classList.add('img-fallback')">
-            <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-          </div>
-          <div class="flex items-start justify-between mt-4">
-            <div>
-              <h3 class="font-display text-xl uppercase tracking-wide">Creative Dreams School Portal</h3>
-              <p class="text-muted text-xs mt-1">Web System</p>
+        <div class="col">
+          <article class="reveal project-card h-100" tabindex="0">
+            <div class="project-image">
+              <img src="assets/project-04.png" alt="Creative Dreams School Portal preview" loading="lazy"
+                   onerror="this.closest('.project-image').classList.add('img-fallback')">
+              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
             </div>
-            <div class="flex items-center gap-2 text-accent text-sm shrink-0 pt-1">
-              04 <span class="project-arrow" aria-hidden="true">→</span>
+            <div class="d-flex align-items-start justify-content-between mt-3">
+              <div>
+                <h3 class="font-display project-title tracking-wide mb-1">Creative Dreams School Portal</h3>
+                <p class="project-sub text-muted mb-0">Web System</p>
+              </div>
+              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
+                04 <span class="project-arrow" aria-hidden="true">→</span>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <section id="about" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Education, skills, and process">
-    <div class="max-w-[1400px] mx-auto grid lg:grid-cols-[1fr_1fr_0.8fr] gap-12 lg:gap-8">
+  <section id="about" class="section-px section-py border-top border-brdr" aria-label="Education, skills, and process">
+    <div class="container-custom row gy-5 gx-4 gx-lg-5">
 
-      <div class="reveal">
-        <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tight mb-8">Education &amp; Skills</h2>
+      <div class="reveal col-12 col-lg-4">
+        <h2 class="font-display about-title tracking-tight mb-4">Education &amp; Skills</h2>
 
-        <h3 class="text-accent text-xs uppercase tracking-widest2 font-semibold mb-4">Education</h3>
-        <div class="flex flex-col gap-5 mb-10">
-          <div class="flex items-baseline justify-between border-b border-brdr pb-3">
+        <h3 class="eyebrow-label mb-3">Education</h3>
+        <div class="d-flex flex-column gap-3 mb-5">
+          <div class="d-flex align-items-baseline justify-content-between border-bottom border-brdr pb-3">
             <div>
-              <p class="font-medium">BSIT — Business Analytics</p>
-              <p class="text-muted text-sm">Batangas State University – TNEU, Arasof-Nasugbu Campus</p>
+              <p class="edu-degree mb-1">BSIT — Business Analytics</p>
+              <p class="edu-school text-muted mb-0">Batangas State University – TNEU, Arasof-Nasugbu Campus</p>
             </div>
-            <span class="text-accent text-sm whitespace-nowrap ml-4">Present</span>
+            <span class="edu-status ms-3">Present</span>
           </div>
         </div>
 
-        <h3 class="text-accent text-xs uppercase tracking-widest2 font-semibold mb-4">Skills</h3>
-        <ul class="flex flex-wrap gap-2.5">
+        <h3 class="eyebrow-label mb-3">Skills</h3>
+        <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
           <li class="skill-pill">React Native</li>
           <li class="skill-pill">Expo Router</li>
           <li class="skill-pill">JavaScript</li>
@@ -258,79 +236,81 @@
         </ul>
       </div>
 
-      <div id="process" class="reveal">
-        <h2 class="font-display text-3xl md:text-4xl uppercase tracking-tight mb-8">Work Process</h2>
+      <div id="process" class="reveal col-12 col-lg-4">
+        <h2 class="font-display about-title tracking-tight mb-4">Work Process</h2>
 
         <ol class="process-list">
           <li class="process-step">
             <span class="process-dot">01</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Discover</p>
-              <p class="text-muted text-sm">Research &amp; Analysis</p>
+              <p class="font-display process-name tracking-wide mb-0">Discover</p>
+              <p class="process-desc text-muted mb-0">Research &amp; Analysis</p>
             </div>
           </li>
           <li class="process-step">
             <span class="process-dot">02</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Plan</p>
-              <p class="text-muted text-sm">User Flow &amp; Wireframes</p>
+              <p class="font-display process-name tracking-wide mb-0">Plan</p>
+              <p class="process-desc text-muted mb-0">User Flow &amp; Wireframes</p>
             </div>
           </li>
           <li class="process-step">
             <span class="process-dot">03</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Design</p>
-              <p class="text-muted text-sm">High-Fidelity UI</p>
+              <p class="font-display process-name tracking-wide mb-0">Design</p>
+              <p class="process-desc text-muted mb-0">High-Fidelity UI</p>
             </div>
           </li>
           <li class="process-step">
             <span class="process-dot">04</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Build</p>
-              <p class="text-muted text-sm">Full-Stack Development</p>
+              <p class="font-display process-name tracking-wide mb-0">Build</p>
+              <p class="process-desc text-muted mb-0">Full-Stack Development</p>
             </div>
           </li>
           <li class="process-step">
             <span class="process-dot">05</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Refine</p>
-              <p class="text-muted text-sm">Feedback &amp; Improvements</p>
+              <p class="font-display process-name tracking-wide mb-0">Refine</p>
+              <p class="process-desc text-muted mb-0">Feedback &amp; Improvements</p>
             </div>
           </li>
           <li class="process-step process-step--last">
             <span class="process-dot">06</span>
             <div>
-              <p class="font-display text-lg uppercase tracking-wide text-accent">Deliver</p>
-              <p class="text-muted text-sm">Final Build / Handoff</p>
+              <p class="font-display process-name tracking-wide mb-0">Deliver</p>
+              <p class="process-desc text-muted mb-0">Final Build / Handoff</p>
             </div>
           </li>
         </ol>
       </div>
 
-      <div class="reveal quote-panel">
-        <span class="quote-mark" aria-hidden="true">&#8220;</span>
-        <p class="font-display text-2xl md:text-3xl uppercase leading-tight mb-6">
-          Good systems come from understanding people first, code second
-        </p>
-        <p class="font-script text-accent text-3xl mb-8">Kimmy</p>
-        <p class="text-sm uppercase tracking-widest2 text-muted">Let's create something great together.</p>
-        <span class="plus-mark text-accent mt-4 inline-block" aria-hidden="true">+</span>
+      <div class="reveal col-12 col-lg-4">
+        <div class="quote-panel">
+          <span class="quote-mark" aria-hidden="true">&#8220;</span>
+          <p class="font-display quote-text mb-4">
+            Good systems come from understanding people first, code second
+          </p>
+          <p class="font-script text-accent quote-name mb-4">Kimmy</p>
+          <p class="quote-cta text-muted tracking-widest2 mb-0">Let's create something great together.</p>
+          <span class="plus-mark text-accent mt-3 d-inline-block" aria-hidden="true">+</span>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <footer id="contact" class="px-6 md:px-10 py-20 md:py-28 border-t border-brdr" aria-label="Contact">
-    <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
+  <footer id="contact" class="section-px section-py border-top border-brdr" aria-label="Contact">
+    <div class="container-custom row gy-5 align-items-center">
 
-      <div class="reveal">
-        <div class="flex items-start gap-4 mb-6">
-          <h2 class="font-display text-5xl md:text-6xl lg:text-7xl uppercase leading-[0.9] tracking-tight">
+      <div class="reveal col-12 col-lg-6">
+        <div class="d-flex align-items-start gap-3 mb-3">
+          <h2 class="font-display footer-title tracking-tight mb-0">
             Let's Work<br>Together
           </h2>
-          <span class="plus-mark plus-mark--lg text-accent mt-2" aria-hidden="true">+</span>
+          <span class="plus-mark plus-mark--lg text-accent mt-2 flex-shrink-0" aria-hidden="true">+</span>
         </div>
-        <p class="text-muted text-sm md:text-[15px] max-w-sm leading-relaxed mb-8">
+        <p class="footer-desc text-muted mb-4">
           Open for OJT, internships, and freelance projects — especially work that mixes development with data and process analysis.
         </p>
         <a href="#contact-details" class="cta-link">
@@ -339,7 +319,7 @@
         </a>
       </div>
 
-      <div class="reveal grid gap-1" id="contact-details">
+      <div class="reveal col-12 col-lg-6 d-grid gap-0" id="contact-details">
         <a href="mailto:youremail@example.com" class="contact-row focus-ring">
           <span class="contact-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5 12 13l9-6.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
@@ -364,28 +344,30 @@
 
     </div>
 
-    <div class="reveal max-w-[1400px] mx-auto mt-16 md:mt-20 flex justify-center lg:justify-end">
+    <div class="reveal container-custom mt-5 d-flex justify-content-center justify-content-lg-end">
       <div class="device-mockup">
         <div class="device-screen">
           <img src="assets/device-mockup.png" alt="Portfolio preview on laptop screen"
                onerror="this.closest('.device-mockup').classList.add('img-fallback')">
           <div class="img-fallback-label" aria-hidden="true">
             <span>Device Mockup</span>
-            <span class="text-[11px] text-muted normal-case">assets/device-mockup.png</span>
+            <span class="text-muted" style="font-size:11px; text-transform:none;">assets/device-mockup.png</span>
           </div>
         </div>
         <div class="device-base"></div>
       </div>
     </div>
 
-    <div class="max-w-[1400px] mx-auto mt-16 pt-6 border-t border-brdr flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] uppercase tracking-widest2 text-muted">
-      <p>&copy; <span id="year"></span> Kimmy. All rights reserved.</p>
-      <p>Built with care.</p>
+    <div class="container-custom mt-5 pt-4 border-top border-brdr d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 copyright-row text-muted tracking-widest2">
+      <p class="mb-0">&copy; <span id="year"></span> Kimmy. All rights reserved.</p>
+      <p class="mb-0">Built with care.</p>
     </div>
   </footer>
 
 </main>
 
+<!-- Bootstrap 5 JS bundle (handles the navbar-collapse mobile menu) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
