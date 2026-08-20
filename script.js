@@ -1,319 +1,299 @@
 /* =========================================================
    Kimberly G. Urge — Data, Design & Direction
-   Contained editorial layout — max-width, no full-bleed
+   Project data, rendering, carousel, and modal logic
    ========================================================= */
 
-:root {
-  --cream: #F3EFE6;
-  --navy: #0D1B2A;
-  --navy-2: #1B365D;
-  --gray: #667085;
-  --white: #FFFFFF;
-  --border: #D8D3C8;
+// ---------- 1. PROJECT DATA ----------
+// Edit this array to add / update projects. Sorted newest → oldest automatically.
+const projects = [
+  {
+    id: "firesight",
+    year: 2026,
+    title: "FireSight",
+    category: "GIS / DATA ANALYTICS / DECISION SUPPORT",
+    role: "Project Lead / Business Analytics",
+    description: "A GIS-based system that analyzes historical fire incident data to help identify areas with higher fire risk.",
+    tools: "Python • MySQL • GIS • Power BI • JavaScript",
+    problem: "How can historical fire incident data help identify areas with higher fire risk?",
+    approach: "Collected and cleaned incident, location, and severity data, then analyzed frequency and spatial distribution to classify risk levels across barangays.",
+    output: "A risk map and dashboard that supports decision-making for fire prevention and response planning.",
+    learning: "[Add what you personally learned — analytical, technical, or team-related.]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BFIRESIGHT+SCREENSHOT%5D"
+  },
+  {
+    id: "project-2",
+    year: 2025,
+    title: "[Project Name]",
+    category: "BUSINESS ANALYTICS / DASHBOARD",
+    role: "[Your role]",
+    description: "[Short description of the project.]",
+    tools: "[Tools used]",
+    problem: "[What problem did this address?]",
+    approach: "[How did you approach it?]",
+    output: "[What was produced?]",
+    learning: "[What did you learn?]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+  },
+  {
+    id: "project-3",
+    year: 2025,
+    title: "[Project Name]",
+    category: "UI/UX / PROTOTYPE",
+    role: "[Your role]",
+    description: "[Short description of the project.]",
+    tools: "[Tools used]",
+    problem: "[What problem did this address?]",
+    approach: "[How did you approach it?]",
+    output: "[What was produced?]",
+    learning: "[What did you learn?]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+  },
+  {
+    id: "project-4",
+    year: 2024,
+    title: "[Project Name]",
+    category: "INFORMATION SYSTEMS",
+    role: "[Your role]",
+    description: "[Short description of the project.]",
+    tools: "[Tools used]",
+    problem: "[What problem did this address?]",
+    approach: "[How did you approach it?]",
+    output: "[What was produced?]",
+    learning: "[What did you learn?]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+  },
+  {
+    id: "project-5",
+    year: 2024,
+    title: "[Project Name]",
+    category: "WEB DEVELOPMENT",
+    role: "[Your role]",
+    description: "[Short description of the project.]",
+    tools: "[Tools used]",
+    problem: "[What problem did this address?]",
+    approach: "[How did you approach it?]",
+    output: "[What was produced?]",
+    learning: "[What did you learn?]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+  },
+  {
+    id: "project-6",
+    year: 2023,
+    title: "[Project Name]",
+    category: "RESEARCH / DOCUMENTATION",
+    role: "[Your role]",
+    description: "[Short description of the project.]",
+    tools: "[Tools used]",
+    problem: "[What problem did this address?]",
+    approach: "[How did you approach it?]",
+    output: "[What was produced?]",
+    learning: "[What did you learn?]",
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+  }
+];
 
-  --maxw: 1280px;
+// Newest first
+projects.sort((a, b) => b.year - a.year);
 
-  --font-display: "Playfair Display", serif;
-  --font-serif: "Cormorant Garamond", serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "Space Mono", monospace;
-}
+const INITIAL_COUNT = 4;
+const visibleProjects = projects.slice(0, INITIAL_COUNT);
+const moreProjects = projects.slice(INITIAL_COUNT);
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--cream);
-  color: var(--navy);
-  font-family: var(--font-body);
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden; /* safety net against any accidental overflow */
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-ul, ol { list-style: none; }
-button { font-family: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+// ---------- 2. JOURNEY DATA ----------
+// Edit this array with your real milestones. Sorted newest → oldest automatically.
+const journey = [
+  { year: 2026, type: "CERTIFICATION", title: "[Certification Name]", detail: "[Issuing Organization]" },
+  { year: 2026, type: "ACHIEVEMENT", title: "[Achievement]", detail: "[Details]" },
+  { year: 2025, type: "LEADERSHIP", title: "[Organization / Role]", detail: "[Details]" },
+  { year: 2025, type: "PROJECT", title: "FireSight", detail: "Capstone project — GIS-based fire risk analytics" },
+  { year: 2024, type: "CERTIFICATION", title: "[Certification Name]", detail: "[Issuing Organization]" },
+  { year: 2023, type: "EDUCATION", title: "BSIT — Business Analytics", detail: "[Your University]" }
+];
+journey.sort((a, b) => b.year - a.year);
 
-.wrap {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+// ---------- 3. RENDER PROJECT GRID ----------
+const projectGrid = document.getElementById("projectGrid");
 
-.skip-link {
-  position: absolute; left: -999px; top: 0;
-  background: var(--navy); color: var(--cream);
-  padding: 10px 16px; z-index: 300; font-family: var(--font-mono); font-size: 12px;
-}
-.skip-link:focus { left: 16px; top: 16px; }
-
-.mono-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-
-/* ---------- Header ---------- */
-.site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(243, 239, 230, 0.9);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--border);
-}
-.header-inner {
-  max-width: var(--maxw); margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.9rem 1.5rem;
-}
-.brand-block { display: flex; flex-direction: column; line-height: 1.2; }
-.brand-name { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; }
-.brand-tag { margin-top: 2px; }
-
-.desktop-nav { display: none; gap: 1.5rem; }
-.desktop-nav a {
-  font-family: var(--font-mono); font-size: 11px;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--gray); position: relative; padding-bottom: 2px;
-}
-.desktop-nav a:hover { color: var(--navy); }
-.desktop-nav a::after {
-  content: ""; position: absolute; left: 0; bottom: -3px;
-  width: 0; height: 1px; background: var(--navy-2);
-  transition: width 250ms ease;
-}
-.desktop-nav a:hover::after { width: 100%; }
-
-.nav-toggle {
-  width: 28px; height: 20px;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
-.nav-toggle span {
-  display: block; width: 100%; height: 1px; background: var(--navy);
-  transition: transform 300ms ease, opacity 300ms ease;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-.mobile-nav {
-  max-height: 0; overflow: hidden;
-  transition: max-height 300ms ease;
-  border-top: 1px solid var(--border);
-}
-.mobile-nav.is-open { max-height: 300px; }
-.mobile-nav a {
-  display: block; padding: 0.8rem 1.5rem;
-  font-family: var(--font-mono); font-size: 12px;
-  text-transform: uppercase; letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--border);
-  color: var(--navy-2);
-}
-@media (min-width: 860px) {
-  .desktop-nav { display: flex; }
-  .nav-toggle { display: none; }
-}
-
-/* ---------- Hero (contained, not full-viewport) ---------- */
-.hero { padding: 4rem 0 3rem; }
-.hero-grid {
-  display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center;
-}
-.hero-title {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(2.5rem, 7vw, 4.25rem);
-  line-height: 1.02; text-transform: uppercase;
-}
-.hero-statement {
-  font-family: var(--font-serif); font-style: italic; color: var(--navy-2);
-  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-  max-width: 34rem; margin: 1.5rem 0 1.5rem;
-}
-.hero-meta { display: flex; align-items: center; gap: 0.6rem; }
-.dot-sep { color: var(--border); }
-
-.hero-photo { justify-self: center; }
-.photo-frame {
-  border: 1px solid var(--border);
-  aspect-ratio: 4/5; max-width: 280px; overflow: hidden; background: var(--white);
-}
-.photo-frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(80%) contrast(1.05); }
-.caption {
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--gray); margin-top: 0.5rem; text-align: center;
-}
-@media (min-width: 860px) {
-  .hero-grid { grid-template-columns: 1.5fr 1fr; }
+function renderProjectCard(project) {
+  const card = document.createElement("button");
+  card.className = "project-card reveal";
+  card.type = "button";
+  card.setAttribute("aria-haspopup", "dialog");
+  card.innerHTML = `
+    <span class="project-image">
+      <img src="${project.image}" alt="${project.title} screenshot">
+    </span>
+    <span class="project-info">
+      <span class="mono-label">${project.year}</span>
+      <h3>${project.title}</h3>
+      <span class="project-cat">${project.category}</span>
+      <span class="project-desc">${project.description}</span>
+      <span class="project-role mono-label">${project.role}</span>
+    </span>
+  `;
+  card.addEventListener("click", () => openModal(project.id));
+  return card;
 }
 
-/* ---------- Section shell (contained) ---------- */
-.section { padding: 4.5rem 0; }
-.section--tint { background: var(--white); }
-.section--navy { background: var(--navy); color: var(--cream); }
-.section--navy .mono-label { color: rgba(243,239,230,0.55); }
+visibleProjects.forEach((p) => projectGrid.appendChild(renderProjectCard(p)));
 
-.section-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--navy-2); text-transform: uppercase; margin-bottom: 0.75rem; }
-.section-title {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.75rem, 3.6vw, 2.5rem); text-transform: uppercase; line-height: 1.1;
-  margin-bottom: 2.5rem;
-}
-.section-title--sm { margin-bottom: 3.5rem; }
-
-/* ---------- About ---------- */
-.about-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-.statement {
-  font-family: var(--font-serif); font-style: italic; color: var(--navy-2);
-  font-size: clamp(1.15rem, 2.4vw, 1.5rem); line-height: 1.4;
-}
-.about-body p { font-size: 0.95rem; margin-bottom: 1rem; color: var(--navy); }
-.interest-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem; margin-top: 0.5rem; }
-.interest-list li { font-size: 0.88rem; position: relative; padding-left: 1rem; }
-.interest-list li::before { content: "—"; position: absolute; left: 0; color: var(--navy-2); }
-@media (min-width: 860px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; } }
-
-/* ---------- Approach: horizontal road ---------- */
-.road {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-.road::before {
-  content: "";
-  position: absolute;
-  top: 9px; left: 0; right: 0;
-  height: 1px;
-  background: var(--border);
-}
-.road-node {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  flex: 1;
-  text-align: center;
-}
-.road-dot {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--white);
-  border: 1px solid var(--navy-2);
-}
-.road-label { white-space: nowrap; }
-
-@media (max-width: 700px) {
-  .road { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .road::before { top: 0; bottom: 0; left: 9px; right: auto; width: 1px; height: auto; }
-  .road-node { flex-direction: row; align-items: center; text-align: left; }
+// Hide "See more" button if there's nothing extra to show
+const seeMoreBtn = document.getElementById("seeMoreBtn");
+if (moreProjects.length === 0) {
+  seeMoreBtn.style.display = "none";
 }
 
-/* ---------- Projects ---------- */
-.project-grid { display: grid; grid-template-columns: 1fr; gap: 2.25rem; }
-.project-card { cursor: pointer; border: none; text-align: left; }
-.project-image { display: block; overflow: hidden; border: 1px solid var(--border); background: var(--white); aspect-ratio: 4/3; }
-.project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 450ms ease; filter: grayscale(15%); }
-.project-card:hover .project-image img { transform: scale(1.03); }
-.project-info { padding-top: 0.9rem; }
-.project-info h3 { font-family: var(--font-display); font-size: 1.25rem; text-transform: uppercase; margin: 0.3rem 0 0.15rem; }
-.project-cat { font-family: var(--font-mono); font-size: 10.5px; color: var(--navy-2); text-transform: uppercase; letter-spacing: 0.06em; }
-.project-desc { font-size: 0.85rem; color: var(--gray); margin: 0.4rem 0; }
-.project-role { font-size: 0.8rem; color: var(--gray); }
+// ---------- 4. RENDER JOURNEY TIMELINE ----------
+const timelineList = document.getElementById("timelineList");
 
-.text-btn {
-  font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
-  border-bottom: 1px solid var(--navy-2); padding-bottom: 3px;
-}
-.section--navy .text-btn { border-color: var(--cream); }
-.see-more-wrap { margin-top: 2.5rem; text-align: center; }
+journey.forEach((item) => {
+  const li = document.createElement("li");
+  li.className = "timeline-item reveal";
+  li.innerHTML = `
+    <span class="mono-label">${item.year}</span>
+    <span class="mono-label">${item.type}</span>
+    <span>
+      <h4>${item.title}</h4>
+      <p class="role-desc">${item.detail}</p>
+    </span>
+  `;
+  timelineList.appendChild(li);
+});
 
-@media (min-width: 700px) { .project-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1050px) { .project-grid { grid-template-columns: repeat(4, 1fr); } }
+// ---------- 5. PROJECT DETAIL MODAL ----------
+const projectModal = document.getElementById("projectModal");
+const modalClose = document.getElementById("modalClose");
 
-/* ---------- Skills ---------- */
-.skills-grid { display: grid; grid-template-columns: 1fr; gap: 2.25rem; }
-.skill-col h4 { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; color: var(--navy-2); margin-bottom: 0.5rem; }
-.skill-col hr { border: none; border-top: 1px solid var(--border); margin-bottom: 0.9rem; }
-.skill-col li { padding: 0.3rem 0; font-size: 0.9rem; }
-@media (min-width: 700px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1050px) { .skills-grid { grid-template-columns: repeat(5, 1fr); } }
+function openModal(projectId) {
+  const project = projects.find((p) => p.id === projectId);
+  if (!project) return;
 
-/* ---------- Journey timeline ---------- */
-.timeline { display: flex; flex-direction: column; }
-.timeline-item {
-  display: grid; grid-template-columns: 70px 90px 1fr;
-  gap: 1rem; align-items: baseline;
-  padding: 1.1rem 0; border-bottom: 1px solid var(--border);
-}
-.timeline-item h4 { font-family: var(--font-display); font-size: 1.05rem; text-transform: uppercase; }
-.timeline-item p.role-desc { color: var(--gray); font-size: 0.85rem; margin-top: 0.15rem; }
-@media (max-width: 560px) {
-  .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
-}
+  document.getElementById("modalImg").src = project.image;
+  document.getElementById("modalImg").alt = `${project.title} screenshot`;
+  document.getElementById("modalMeta").textContent = `${project.year} / ${project.role}`;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalCat").textContent = project.category;
+  document.getElementById("modalOverview").textContent = project.description;
+  document.getElementById("modalRole").textContent = project.role;
+  document.getElementById("modalProblem").textContent = project.problem;
+  document.getElementById("modalApproach").textContent = project.approach;
+  document.getElementById("modalTools").textContent = project.tools;
+  document.getElementById("modalOutput").textContent = project.output;
+  document.getElementById("modalLearning").textContent = project.learning;
 
-/* ---------- Contact ---------- */
-.contact-wrap { padding-top: 1rem; padding-bottom: 1rem; }
-.contact-title {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.9rem, 5vw, 3.25rem); text-transform: uppercase; line-height: 1.05;
-  margin-bottom: 2.5rem;
-}
-.contact-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-bottom: 3rem; }
-.contact-name { font-family: var(--font-serif); font-style: italic; font-size: 1.35rem; }
-.contact-links { display: flex; flex-direction: column; gap: 0.6rem; font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.contact-links a:hover { opacity: 0.75; }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(243,239,230,0.15); }
-@media (min-width: 700px) { .contact-grid { grid-template-columns: 1fr 1fr; align-items: end; } }
-
-/* ---------- Overlays (carousel + modal) ---------- */
-.overlay {
-  position: fixed; inset: 0; z-index: 200;
-  background: rgba(13, 27, 42, 0.72);
-  display: flex; align-items: center; justify-content: center;
-  padding: 1.5rem;
-  opacity: 0; pointer-events: none;
-  transition: opacity 250ms ease;
-}
-.overlay.is-open { opacity: 1; pointer-events: auto; }
-
-.overlay-panel {
-  background: var(--cream);
-  border: 1px solid var(--border);
-  max-width: 780px; width: 100%;
-  max-height: 90vh; overflow-y: auto;
-  position: relative;
-  padding: 2.5rem 2rem 2rem;
-}
-.overlay-close {
-  position: absolute; top: 1rem; right: 1rem;
-  width: 32px; height: 32px;
-  font-size: 14px; color: var(--navy);
-  border: 1px solid var(--border); border-radius: 50%;
+  projectModal.classList.add("is-open");
+  projectModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
-/* Carousel */
-.carousel-index { text-align: center; margin-bottom: 1rem; }
-.carousel-image { border: 1px solid var(--border); aspect-ratio: 16/10; overflow: hidden; margin-bottom: 1.25rem; }
-.carousel-image img { width: 100%; height: 100%; object-fit: cover; }
-.carousel-info h3 { font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; margin: 0.4rem 0 0.2rem; }
-.carousel-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
-.carousel-nav button { font-size: 1.25rem; color: var(--navy-2); width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; }
-.carousel-nav button:hover { background: var(--white); }
+function closeModal() {
+  projectModal.classList.remove("is-open");
+  projectModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
 
-/* Project detail modal */
-.modal-media { border: 1px solid var(--border); aspect-ratio: 16/9; overflow: hidden; margin-bottom: 1.5rem; }
-.modal-media img { width: 100%; height: 100%; object-fit: cover; }
-.modal-body h3 { font-family: var(--font-display); font-size: 1.75rem; text-transform: uppercase; margin: 0.4rem 0 0.2rem; }
-.modal-section { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-.modal-section p:last-child { font-size: 0.92rem; margin-top: 0.35rem; color: var(--navy); }
+modalClose.addEventListener("click", closeModal);
+projectModal.addEventListener("click", (e) => {
+  if (e.target === projectModal) closeModal();
+});
 
-/* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms ease; }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
+// ---------- 6. PROJECT CAROUSEL (for "See more work") ----------
+const carouselOverlay = document.getElementById("carouselOverlay");
+const carouselClose = document.getElementById("carouselClose");
+const carouselPrev = document.getElementById("carouselPrev");
+const carouselNext = document.getElementById("carouselNext");
+const carouselDetailsBtn = document.getElementById("carouselDetailsBtn");
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+let carouselIndex = 0;
+
+function renderCarouselSlide() {
+  if (moreProjects.length === 0) return;
+  const project = moreProjects[carouselIndex];
+
+  document.getElementById("carouselImg").src = project.image;
+  document.getElementById("carouselImg").alt = `${project.title} screenshot`;
+  document.getElementById("carouselYear").textContent = project.year;
+  document.getElementById("carouselTitle").textContent = project.title;
+  document.getElementById("carouselCat").textContent = project.category;
+  document.getElementById("carouselDesc").textContent = project.description;
+  document.getElementById("carouselIndex").textContent =
+    `${String(carouselIndex + 1).padStart(2, "0")} / ${String(moreProjects.length).padStart(2, "0")}`;
+}
+
+function openCarousel() {
+  if (moreProjects.length === 0) return;
+  carouselIndex = 0;
+  renderCarouselSlide();
+  carouselOverlay.classList.add("is-open");
+  carouselOverlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCarousel() {
+  carouselOverlay.classList.remove("is-open");
+  carouselOverlay.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+seeMoreBtn.addEventListener("click", openCarousel);
+carouselClose.addEventListener("click", closeCarousel);
+carouselOverlay.addEventListener("click", (e) => {
+  if (e.target === carouselOverlay) closeCarousel();
+});
+
+carouselPrev.addEventListener("click", () => {
+  carouselIndex = (carouselIndex - 1 + moreProjects.length) % moreProjects.length;
+  renderCarouselSlide();
+});
+carouselNext.addEventListener("click", () => {
+  carouselIndex = (carouselIndex + 1) % moreProjects.length;
+  renderCarouselSlide();
+});
+carouselDetailsBtn.addEventListener("click", () => {
+  const project = moreProjects[carouselIndex];
+  closeCarousel();
+  openModal(project.id);
+});
+
+// Close overlays with Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+    closeCarousel();
+  }
+});
+
+// ---------- 7. MOBILE NAV TOGGLE ----------
+const navToggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+navToggle.addEventListener("click", () => {
+  const isOpen = mobileNav.classList.toggle("is-open");
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+});
+mobileNav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// ---------- 8. FOOTER YEAR ----------
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ---------- 9. SCROLL-REVEAL ----------
+const revealEls = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window && revealEls.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  revealEls.forEach((el) => observer.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add("is-visible"));
 }
