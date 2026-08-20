@@ -18,7 +18,7 @@ const projects = [
     approach: "Collected and cleaned incident, location, and severity data, then analyzed frequency and spatial distribution to classify risk levels across barangays.",
     output: "A risk map and dashboard that supports decision-making for fire prevention and response planning.",
     learning: "[Add what you personally learned — analytical, technical, or team-related.]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BFIRESIGHT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BFIRESIGHT+SCREENSHOT%5D"
   },
   {
     id: "project-2",
@@ -32,7 +32,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-3",
@@ -46,7 +46,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-4",
@@ -60,7 +60,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-5",
@@ -74,7 +74,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-6",
@@ -88,7 +88,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
   }
 ];
 
@@ -109,7 +109,7 @@ const journeyData = {
       organization: "[Issuing Organization]",
       year: "2026",
       category: "CERTIFICATION",
-      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BCERTIFICATE%5D",
+      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BCERTIFICATE%5D",
       description: "[Short description of the certification and why it matters.]"
     },
     {
@@ -117,7 +117,7 @@ const journeyData = {
       organization: "[Organization / Competition]",
       year: "2025",
       category: "ACHIEVEMENT",
-      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BACHIEVEMENT%5D",
+      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BACHIEVEMENT%5D",
       description: "[Short description of the achievement.]"
     },
     {
@@ -125,7 +125,7 @@ const journeyData = {
       organization: "[Organization]",
       year: "2025",
       category: "TRAINING",
-      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BTRAINING%5D",
+      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BTRAINING%5D",
       description: "[Short description of the seminar or training.]"
     }
   ],
@@ -135,7 +135,7 @@ const journeyData = {
       role: "[Leadership Role]",
       organization: "[Organization / Project]",
       year: "2026",
-      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D",
+      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D",
       description: "[Short description of the role and what it involved.]",
       contributions: [
         "[Contribution 1]",
@@ -147,7 +147,7 @@ const journeyData = {
       role: "[Leadership Role]",
       organization: "[Organization / Project]",
       year: "2025",
-      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D",
+      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D",
       description: "[Short description of the role and what it involved.]",
       contributions: [
         "[Contribution 1]",
@@ -162,7 +162,7 @@ const journeyData = {
       type: "Capstone Project",
       year: "2026",
       role: "Project Lead / Business Analytics",
-      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BFIRESIGHT%5D",
+      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BFIRESIGHT%5D",
       description: "A GIS-based fire incident reporting and risk analytics system built to support fire prevention decision-making.",
       focus: ["GIS", "Data Analytics", "Risk Prediction", "Data Visualization"],
       projectId: "firesight"
@@ -172,7 +172,7 @@ const journeyData = {
       type: "Education",
       year: "2022 – 2026",
       role: "[Your University]",
-      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BEDUCATION%5D",
+      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BEDUCATION%5D",
       description: "[Add relevant coursework, focus areas, or academic milestones.]",
       focus: ["Business Analytics", "Information Systems"],
       projectId: null
@@ -182,7 +182,7 @@ const journeyData = {
       type: "Academic Project",
       year: "2025",
       role: "[Your role]",
-      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BPROJECT%5D",
+      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BPROJECT%5D",
       description: "[Short description of the project or research.]",
       focus: ["[Focus 1]", "[Focus 2]"],
       projectId: null
@@ -230,19 +230,19 @@ const journeyCardMeta = [
     key: "certifications",
     index: "01",
     title: "CERTIFICATIONS<br>+ ACHIEVEMENTS",
-    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BCERTIFICATIONS%5D"
+    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BCERTIFICATIONS%5D"
   },
   {
     key: "leadership",
     index: "02",
     title: "LEADERSHIP",
-    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D"
+    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D"
   },
   {
     key: "worksEducation",
     index: "03",
     title: "WORKS<br>+ EDUCATION",
-    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BWORKS%5D"
+    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BWORKS%5D"
   }
 ];
 
