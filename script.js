@@ -4,7 +4,25 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// Scroll-reveal animation (Bootstrap has no built-in equivalent)
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const mobileNav = document.getElementById('mobileNav');
+
+if (navToggle && mobileNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// Scroll-reveal animation
 const revealEls = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window && revealEls.length) {
@@ -19,15 +37,5 @@ if ('IntersectionObserver' in window && revealEls.length) {
 
   revealEls.forEach((el) => observer.observe(el));
 } else {
-  // Fallback: just show everything
   revealEls.forEach((el) => el.classList.add('is-visible'));
-}
-
-// Close the mobile menu (Bootstrap collapse) after tapping a nav link
-const mobileMenu = document.getElementById('mobileMenu');
-if (mobileMenu && window.bootstrap) {
-  const collapseInstance = window.bootstrap.Collapse.getOrCreateInstance(mobileMenu, { toggle: false });
-  mobileMenu.querySelectorAll('a.nav-link').forEach((link) => {
-    link.addEventListener('click', () => collapseInstance.hide());
-  });
 }

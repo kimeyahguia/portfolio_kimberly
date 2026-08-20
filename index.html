@@ -3,371 +3,421 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kimmy — Portfolio</title>
-<meta name="description" content="Aspiring Business Analyst & Full-Stack Developer — portfolio of Kimmy.">
+<title>Kimberly G. Urge — Portfolio</title>
+<meta name="description" content="Kimberly G. Urge — BSIT, Business Analytics. Data, Systems & Digital Work.">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Bootstrap 5 (CDN, no install/build step needed) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Brand tokens + custom styles (loaded after Bootstrap so it can override) -->
 <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="font-body">
+<body>
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="sticky-top bg-blur border-bottom border-brdr">
-  <nav class="navbar navbar-expand-md container-custom section-px py-3" aria-label="Primary">
+<!-- ============ NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#hero" class="brand">KGU<span class="brand-dot">.</span></a>
 
-    <div class="leading-tight">
-      <p class="site-eyebrow text-accent tracking-widest2 mb-0">Business Analyst</p>
-      <p class="site-name text-muted tracking-wide mb-0">Kimmy</p>
-    </div>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#intro">01 Intro</a>
+      <a href="#approach">02 Approach</a>
+      <a href="#work">03 Work</a>
+      <a href="#firesight">04 Featured</a>
+      <a href="#skills">05 Skills</a>
+      <a href="#journey">06 Journey</a>
+      <a href="#contact">07 Contact</a>
+    </nav>
 
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle menu">
-      <span class="hamburger-bar bar-1"></span>
-      <span class="hamburger-bar bar-2"></span>
-      <span class="hamburger-bar bar-3"></span>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
     </button>
+  </div>
 
-    <div class="collapse navbar-collapse flex-grow-0" id="mobileMenu">
-      <ul class="navbar-nav d-flex flex-column flex-md-row align-items-md-center gap-md-4 gap-2 mt-3 mt-md-0 mb-0 tracking-widest2">
-        <li class="nav-item"><a href="#work" class="nav-link">Work</a></li>
-        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="#process" class="nav-link">Process</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="d-flex d-md-none align-items-center gap-2 mt-4 open-status text-muted tracking-widest2">
-        <span class="plus-mark text-accent" aria-hidden="true">+</span>
-        Open for OJT / Projects
-      </div>
-    </div>
-
-    <div class="d-none d-md-flex align-items-center gap-3 ms-4">
-      <span class="open-status text-muted tracking-widest2">Open for OJT / Projects</span>
-      <span class="plus-mark text-accent" aria-hidden="true">+</span>
-    </div>
-  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#intro">01 / Introduction</a>
+    <a href="#approach">02 / My Approach</a>
+    <a href="#work">03 / Selected Work</a>
+    <a href="#firesight">04 / Featured Project</a>
+    <a href="#skills">05 / Skills</a>
+    <a href="#journey">06 / Journey</a>
+    <a href="#beyond">07 / Beyond the Data</a>
+    <a href="#contact">08 / Contact</a>
+  </div>
 </header>
 
 <main id="main">
 
-  <section class="position-relative overflow-hidden section-px pt-5 pt-md-5 pb-5 pb-md-5" aria-label="Introduction" style="padding-top:4rem; padding-bottom:5rem;">
-    <div class="container-custom position-relative">
-
-      <div class="hero-bg-type" aria-hidden="true">PORTFOLIO</div>
-
-      <div class="row position-relative align-items-end gy-5 gy-md-4">
-
-        <div class="reveal col-12 col-md-5 order-2 order-md-1">
-          <p class="font-script text-accent hero-greeting mb-2">Hello, I'm</p>
-          <h1 class="font-display hero-name mb-0">KIMMY</h1>
-          <p class="font-display text-accent hero-role tracking-wide mt-2 mb-0">Aspiring Business Analyst</p>
-
-          <p class="text-muted hero-desc mt-4 mb-0">
-            BSIT student majoring in Business Analytics at Batangas State University – TNEU, Arasof-Nasugbu Campus. I build full-stack systems and mobile apps, then use data to make them smarter.
-          </p>
-
-          <div class="d-flex align-items-center gap-2 mt-4 hero-location text-muted tracking-widest2">
-            <span class="location-pin" aria-hidden="true"></span>
-            Nasugbu, Batangas, Philippines
-          </div>
-        </div>
-
-        <div class="reveal col-12 col-md-4 order-1 order-md-2">
-          <div class="hero-image-frame">
-            <img
-              src="assets/profile-image.png"
-              alt="Kimmy — profile photo"
-              class="w-100 h-100"
-              onerror="this.closest('.hero-image-frame').classList.add('img-fallback')">
-            <div class="img-fallback-label" aria-hidden="true">
-              <span>Profile Image</span>
-              <span class="text-muted" style="font-size:11px; text-transform:none;">assets/profile-image.png</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal col-12 col-md-3 order-3">
-          <div class="d-flex flex-column gap-4 ps-md-3">
-            <div class="d-flex align-items-start gap-3">
-              <span class="plus-mark plus-mark--lg text-accent flex-shrink-0" aria-hidden="true">+</span>
-              <p class="font-display hero-highlight tracking-wide mb-0">
-                Turning data into decisions, and ideas into working systems
-              </p>
-            </div>
-            <ul class="list-unstyled d-flex flex-column gap-3 hero-list text-muted mb-0">
-              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Data-Driven Solutions</li>
-              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Full-Stack Development</li>
-              <li class="d-flex align-items-center gap-2"><span class="text-accent">+</span> Process Analysis &amp; Improvement</li>
-            </ul>
-          </div>
-        </div>
-
+  <!-- ============ 01 HERO / COVER ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-grid">
+      <div class="hero-left reveal">
+        <p class="mono-label">BSIT — BUSINESS ANALYTICS</p>
+        <h1 class="hero-title">
+          PORT<br>FOLIO
+        </h1>
+        <p class="mono-label hero-year">SELECTED WORKS / 2026</p>
       </div>
+
+      <div class="hero-photo reveal">
+        <div class="photo-frame">
+          <img src="https://via.placeholder.com/700x900/D8D3C8/1B365D?text=%5BYOUR+PHOTO%5D" alt="Portrait of Kimberly G. Urge">
+        </div>
+        <p class="caption">KIMBERLY / PORTRAIT / 2026</p>
+      </div>
+
+      <div class="hero-right reveal">
+        <h2 class="hero-name">KIMBERLY<br>G. URGE</h2>
+        <p class="hero-role">Business Analytics<br>&amp; Information Technology</p>
+        <div class="hero-meta">
+          <span class="mono-label">PHILIPPINES</span>
+          <span class="dot-sep">•</span>
+          <span class="mono-label">4TH YEAR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue reveal">
+      <span class="arrow-down">↓</span>
+      <span class="mono-label">SCROLL</span>
     </div>
   </section>
 
-  <section id="work" class="section-px section-py border-top border-brdr" aria-label="Selected projects">
-    <div class="container-custom">
+  <!-- ============ 02 INTRODUCTION ============ -->
+  <section class="section" id="intro">
+    <p class="section-label reveal">01 / INTRODUCTION</p>
+    <h2 class="section-title reveal">WHO AM I?</h2>
 
-      <div class="reveal d-flex align-items-end justify-content-between mb-5">
-        <h2 class="font-display section-title tracking-tight mb-0">Selected Projects</h2>
-        <span class="d-none d-md-block section-index tracking-widest2">01 — 04</span>
-      </div>
+    <div class="intro-grid">
+      <p class="statement reveal">
+        “I turn data into insights, systems into solutions, and ideas into meaningful digital experiences.”
+      </p>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-
-        <div class="col">
-          <article class="reveal project-card h-100" tabindex="0">
-            <div class="project-image">
-              <img src="assets/project-01.png" alt="FIRESIGHT preview" loading="lazy"
-                   onerror="this.closest('.project-image').classList.add('img-fallback')">
-              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-            </div>
-            <div class="d-flex align-items-start justify-content-between mt-3">
-              <div>
-                <h3 class="font-display project-title tracking-wide mb-1">FIRESIGHT</h3>
-                <p class="project-sub text-muted mb-0">Capstone — Fire Incident Reporting App</p>
-              </div>
-              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
-                01 <span class="project-arrow" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col">
-          <article class="reveal project-card h-100" tabindex="0">
-            <div class="project-image">
-              <img src="assets/project-02.png" alt="Trackademic preview" loading="lazy"
-                   onerror="this.closest('.project-image').classList.add('img-fallback')">
-              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-            </div>
-            <div class="d-flex align-items-start justify-content-between mt-3">
-              <div>
-                <h3 class="font-display project-title tracking-wide mb-1">Trackademic</h3>
-                <p class="project-sub text-muted mb-0">Academic Tracking App</p>
-              </div>
-              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
-                02 <span class="project-arrow" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col">
-          <article class="reveal project-card h-100" tabindex="0">
-            <div class="project-image">
-              <img src="assets/project-03.png" alt="TeleclinicMed preview" loading="lazy"
-                   onerror="this.closest('.project-image').classList.add('img-fallback')">
-              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-            </div>
-            <div class="d-flex align-items-start justify-content-between mt-3">
-              <div>
-                <h3 class="font-display project-title tracking-wide mb-1">TeleclinicMed</h3>
-                <p class="project-sub text-muted mb-0">Mobile App</p>
-              </div>
-              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
-                03 <span class="project-arrow" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="col">
-          <article class="reveal project-card h-100" tabindex="0">
-            <div class="project-image">
-              <img src="assets/project-04.png" alt="Creative Dreams School Portal preview" loading="lazy"
-                   onerror="this.closest('.project-image').classList.add('img-fallback')">
-              <div class="img-fallback-label" aria-hidden="true"><span>Project Image</span></div>
-            </div>
-            <div class="d-flex align-items-start justify-content-between mt-3">
-              <div>
-                <h3 class="font-display project-title tracking-wide mb-1">Creative Dreams School Portal</h3>
-                <p class="project-sub text-muted mb-0">Web System</p>
-              </div>
-              <div class="d-flex align-items-center gap-2 project-number flex-shrink-0 pt-1">
-                04 <span class="project-arrow" aria-hidden="true">→</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section-px section-py border-top border-brdr" aria-label="Education, skills, and process">
-    <div class="container-custom row gy-5 gx-4 gx-lg-5">
-
-      <div class="reveal col-12 col-lg-4">
-        <h2 class="font-display about-title tracking-tight mb-4">Education &amp; Skills</h2>
-
-        <h3 class="eyebrow-label mb-3">Education</h3>
-        <div class="d-flex flex-column gap-3 mb-5">
-          <div class="d-flex align-items-baseline justify-content-between border-bottom border-brdr pb-3">
-            <div>
-              <p class="edu-degree mb-1">BSIT — Business Analytics</p>
-              <p class="edu-school text-muted mb-0">Batangas State University – TNEU, Arasof-Nasugbu Campus</p>
-            </div>
-            <span class="edu-status ms-3">Present</span>
-          </div>
-        </div>
-
-        <h3 class="eyebrow-label mb-3">Skills</h3>
-        <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
-          <li class="skill-pill">React Native</li>
-          <li class="skill-pill">Expo Router</li>
-          <li class="skill-pill">JavaScript</li>
-          <li class="skill-pill">PHP</li>
-          <li class="skill-pill">MySQL</li>
-          <li class="skill-pill">Express.js</li>
-          <li class="skill-pill">SQL</li>
-          <li class="skill-pill">Power BI</li>
-          <li class="skill-pill">Data Analysis</li>
-          <li class="skill-pill">Problem Solving</li>
-        </ul>
-      </div>
-
-      <div id="process" class="reveal col-12 col-lg-4">
-        <h2 class="font-display about-title tracking-tight mb-4">Work Process</h2>
-
-        <ol class="process-list">
-          <li class="process-step">
-            <span class="process-dot">01</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Discover</p>
-              <p class="process-desc text-muted mb-0">Research &amp; Analysis</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-dot">02</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Plan</p>
-              <p class="process-desc text-muted mb-0">User Flow &amp; Wireframes</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-dot">03</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Design</p>
-              <p class="process-desc text-muted mb-0">High-Fidelity UI</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-dot">04</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Build</p>
-              <p class="process-desc text-muted mb-0">Full-Stack Development</p>
-            </div>
-          </li>
-          <li class="process-step">
-            <span class="process-dot">05</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Refine</p>
-              <p class="process-desc text-muted mb-0">Feedback &amp; Improvements</p>
-            </div>
-          </li>
-          <li class="process-step process-step--last">
-            <span class="process-dot">06</span>
-            <div>
-              <p class="font-display process-name tracking-wide mb-0">Deliver</p>
-              <p class="process-desc text-muted mb-0">Final Build / Handoff</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <div class="reveal col-12 col-lg-4">
-        <div class="quote-panel">
-          <span class="quote-mark" aria-hidden="true">&#8220;</span>
-          <p class="font-display quote-text mb-4">
-            Good systems come from understanding people first, code second
-          </p>
-          <p class="font-script text-accent quote-name mb-4">Kimmy</p>
-          <p class="quote-cta text-muted tracking-widest2 mb-0">Let's create something great together.</p>
-          <span class="plus-mark text-accent mt-3 d-inline-block" aria-hidden="true">+</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <footer id="contact" class="section-px section-py border-top border-brdr" aria-label="Contact">
-    <div class="container-custom row gy-5 align-items-center">
-
-      <div class="reveal col-12 col-lg-6">
-        <div class="d-flex align-items-start gap-3 mb-3">
-          <h2 class="font-display footer-title tracking-tight mb-0">
-            Let's Work<br>Together
-          </h2>
-          <span class="plus-mark plus-mark--lg text-accent mt-2 flex-shrink-0" aria-hidden="true">+</span>
-        </div>
-        <p class="footer-desc text-muted mb-4">
-          Open for OJT, internships, and freelance projects — especially work that mixes development with data and process analysis.
+      <div class="intro-body reveal">
+        <p>
+          I'm a fourth-year BSIT student specializing in Business Analytics. My work sits
+          at the intersection of data, systems, and design — exploring how information can
+          be organized, analyzed, and visualized to support better decisions.
         </p>
-        <a href="#contact-details" class="cta-link">
-          <span class="cta-arrow" aria-hidden="true">→</span>
-          Available for Freelance
-        </a>
-      </div>
+        <p>I'm particularly interested in:</p>
+        <ul class="interest-list">
+          <li>Data Analytics</li>
+          <li>Business Intelligence</li>
+          <li>Data Visualization</li>
+          <li>GIS</li>
+          <li>Information Systems</li>
+          <li>Machine Learning</li>
+          <li>Technology-driven problem solving</li>
+          <li>UI/UX &amp; digital experiences</li>
+        </ul>
 
-      <div class="reveal col-12 col-lg-6 d-grid gap-0" id="contact-details">
-        <a href="mailto:youremail@example.com" class="contact-row focus-ring">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6.5 12 13l9-6.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
-          </span>
-          <span>[YOUR EMAIL]</span>
-        </a>
-        <a href="#" class="contact-row focus-ring">
-          <span class="contact-icon" aria-hidden="true">Gh</span>
-          <span>[YOUR GITHUB]</span>
-        </a>
-        <a href="#" class="contact-row focus-ring">
-          <span class="contact-icon" aria-hidden="true">in</span>
-          <span>[YOUR LINKEDIN]</span>
-        </a>
-        <a href="#" class="contact-row focus-ring">
-          <span class="contact-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M4 9.5c4 1.4 9 1.2 15.3-.4M3 15c5-1.4 12-1.8 17.5.7M9 4c3.2 4.6 4.6 10.8 3.6 16" stroke-linecap="round"/></svg>
-          </span>
-          <span>[YOUR FACEBOOK]</span>
-        </a>
+        <dl class="meta-list mono-label">
+          <div><dt>BASED IN</dt><dd>PHILIPPINES</dd></div>
+          <div><dt>PROGRAM</dt><dd>BS INFORMATION TECHNOLOGY</dd></div>
+          <div><dt>SPECIALIZATION</dt><dd>BUSINESS ANALYTICS</dd></div>
+          <div><dt>STATUS</dt><dd>4TH YEAR</dd></div>
+        </dl>
       </div>
+    </div>
+  </section>
 
+  <!-- ============ 03 MY APPROACH ============ -->
+  <section class="section section--navy" id="approach">
+    <p class="section-label reveal">02 / MY APPROACH</p>
+    <h2 class="section-title reveal">DATA IS ONLY<br>THE START.</h2>
+
+    <div class="approach-flow reveal">
+      <span>DATA</span>
+      <span class="flow-arrow">↓</span>
+      <span>ANALYZE</span>
+      <span class="flow-arrow">↓</span>
+      <span>UNDERSTAND</span>
+      <span class="flow-arrow">↓</span>
+      <span>VISUALIZE</span>
+      <span class="flow-arrow">↓</span>
+      <span>ACT</span>
     </div>
 
-    <div class="reveal container-custom mt-5 d-flex justify-content-center justify-content-lg-end">
-      <div class="device-mockup">
-        <div class="device-screen">
-          <img src="assets/device-mockup.png" alt="Portfolio preview on laptop screen"
-               onerror="this.closest('.device-mockup').classList.add('img-fallback')">
-          <div class="img-fallback-label" aria-hidden="true">
-            <span>Device Mockup</span>
-            <span class="text-muted" style="font-size:11px; text-transform:none;">assets/device-mockup.png</span>
-          </div>
+    <p class="handwritten reveal">— it's what you do with it that matters</p>
+  </section>
+
+  <!-- ============ 04 SELECTED WORK ============ -->
+  <section class="section" id="work">
+    <p class="section-label reveal">03 / SELECTED WORK</p>
+    <h2 class="section-title reveal">SELECTED PROJECTS</h2>
+
+    <div class="gallery">
+      <article class="gallery-item gallery-item--lg reveal">
+        <a href="#firesight" class="project-image">
+          <img src="https://via.placeholder.com/1000x750/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D" alt="FireSight project screenshot">
+        </a>
+        <div class="project-info">
+          <span class="mono-label">01</span>
+          <h3>FIRESIGHT</h3>
+          <p class="project-cat">GIS + ANALYTICS</p>
+          <p class="project-desc">Data Visualization • GIS • Machine Learning • Decision Support</p>
+          <a href="#firesight" class="view-link">VIEW CASE STUDY →</a>
         </div>
-        <div class="device-base"></div>
+      </article>
+
+      <article class="gallery-item reveal">
+        <a href="#" class="project-image">
+          <img src="https://via.placeholder.com/700x900/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D" alt="Project 02 screenshot">
+        </a>
+        <div class="project-info">
+          <span class="mono-label">02</span>
+          <h3>[PROJECT NAME]</h3>
+          <p class="project-cat">BUSINESS ANALYTICS</p>
+          <p class="project-desc">[Short description of the project]</p>
+          <a href="#" class="view-link">VIEW CASE STUDY →</a>
+        </div>
+      </article>
+
+      <article class="gallery-item reveal">
+        <a href="#" class="project-image">
+          <img src="https://via.placeholder.com/700x900/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D" alt="Project 03 screenshot">
+        </a>
+        <div class="project-info">
+          <span class="mono-label">03</span>
+          <h3>[PROJECT NAME]</h3>
+          <p class="project-cat">DATA VISUALIZATION</p>
+          <p class="project-desc">[Short description of the project]</p>
+          <a href="#" class="view-link">VIEW CASE STUDY →</a>
+        </div>
+      </article>
+
+      <article class="gallery-item gallery-item--wide reveal">
+        <a href="#" class="project-image">
+          <img src="https://via.placeholder.com/1000x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D" alt="Project 04 screenshot">
+        </a>
+        <div class="project-info">
+          <span class="mono-label">04</span>
+          <h3>[PROJECT NAME]</h3>
+          <p class="project-cat">INFORMATION SYSTEMS</p>
+          <p class="project-desc">[Short description of the project]</p>
+          <a href="#" class="view-link">VIEW CASE STUDY →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 05 FEATURED PROJECT: FIRESIGHT ============ -->
+  <section class="section section--white" id="firesight">
+    <p class="section-label reveal">04 / FEATURED PROJECT</p>
+    <h2 class="feature-title reveal">FIRESIGHT</h2>
+    <p class="feature-subtitle reveal">GIS-BASED FIRE INCIDENT REPORTING &amp; RISK ANALYTICS</p>
+
+    <div class="feature-image reveal">
+      <img src="https://via.placeholder.com/1400x800/D8D3C8/0D1B2A?text=%5BDASHBOARD+%2F+MAP+SCREENSHOT%5D" alt="FireSight dashboard">
+      <p class="caption">FIRESIGHT / RISK MAP / 2026</p>
+    </div>
+
+    <div class="feature-grid reveal">
+      <div>
+        <p class="mono-label">ROLE</p>
+        <p>Project Lead / Business Analytics</p>
+      </div>
+      <div>
+        <p class="mono-label">TOOLS</p>
+        <p>Python • MySQL • GIS • Machine Learning<br>Power BI • JavaScript</p>
+      </div>
+      <div>
+        <p class="mono-label">FOCUS</p>
+        <p>Data Analytics<br>Risk Prediction<br>Geospatial Visualization<br>Decision Support</p>
       </div>
     </div>
 
-    <div class="container-custom mt-5 pt-4 border-top border-brdr d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 copyright-row text-muted tracking-widest2">
-      <p class="mb-0">&copy; <span id="year"></span> Kimmy. All rights reserved.</p>
-      <p class="mb-0">Built with care.</p>
+    <p class="feature-desc reveal">
+      FireSight is a GIS-based decision-support system that analyzes historical fire
+      incident data to identify risk patterns across barangays. It combines geospatial
+      analysis, statistical modeling, and dashboard reporting to help stakeholders
+      understand where — and why — fire risk concentrates. [Replace with your full
+      project description.]
+    </p>
+  </section>
+
+  <!-- ============ 06 CASE STUDY ============ -->
+  <section class="section section--navy" id="case-study">
+    <p class="section-label reveal">05 / CASE STUDY</p>
+
+    <div class="case-flow">
+      <div class="case-step reveal">
+        <span class="case-num">01</span>
+        <h3>THE PROBLEM</h3>
+        <p>How can historical fire incident data help identify areas with higher fire risk?</p>
+      </div>
+      <div class="case-step reveal">
+        <span class="case-num">02</span>
+        <h3>THE DATA</h3>
+        <p>Incident Records, Location Data, Historical Trends, Barangay Boundaries, Severity Information</p>
+      </div>
+      <div class="case-step reveal">
+        <span class="case-num">03</span>
+        <h3>THE ANALYSIS</h3>
+        <p>Frequency, Spatial Distribution, Risk Classification, Historical Patterns</p>
+      </div>
+      <div class="case-step reveal">
+        <span class="case-num">04</span>
+        <h3>THE OUTPUT</h3>
+        <p>Risk Map, Dashboard, Prediction, Decision Support</p>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- ============ 07 OTHER PROJECTS ============ -->
+  <section class="section" id="other-work">
+    <p class="section-label reveal">06 / OTHER PROJECTS</p>
+    <h2 class="section-title reveal">MORE WORK</h2>
+
+    <div class="other-grid">
+      <div class="other-item reveal">
+        <span class="mono-label">01</span>
+        <h4>[PROJECT NAME]</h4>
+        <p class="project-cat">WEB DEVELOPMENT</p>
+      </div>
+      <div class="other-item reveal">
+        <span class="mono-label">02</span>
+        <h4>[PROJECT NAME]</h4>
+        <p class="project-cat">UI/UX</p>
+      </div>
+      <div class="other-item reveal">
+        <span class="mono-label">03</span>
+        <h4>[PROJECT NAME]</h4>
+        <p class="project-cat">MOBILE DEVELOPMENT</p>
+      </div>
+      <div class="other-item reveal">
+        <span class="mono-label">04</span>
+        <h4>[PROJECT NAME]</h4>
+        <p class="project-cat">CYBERSECURITY</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 SKILLS ============ -->
+  <section class="section section--white" id="skills">
+    <p class="section-label reveal">07 / SKILLS &amp; CAPABILITIES</p>
+    <h2 class="section-title reveal">CAPABILITIES INDEX</h2>
+
+    <div class="skills-grid">
+      <div class="skill-col reveal">
+        <h4>DATA</h4><hr>
+        <ul><li>Python</li><li>SQL</li><li>Excel</li><li>Power BI</li><li>Data Cleaning</li><li>Data Visualization</li><li>Statistical Analysis</li></ul>
+      </div>
+      <div class="skill-col reveal">
+        <h4>SYSTEMS</h4><hr>
+        <ul><li>Java</li><li>PHP</li><li>JavaScript</li><li>MySQL</li><li>REST APIs</li><li>System Analysis</li></ul>
+      </div>
+      <div class="skill-col reveal">
+        <h4>SPATIAL</h4><hr>
+        <ul><li>GIS</li><li>QGIS</li><li>Leaflet</li><li>Geospatial Analysis</li></ul>
+      </div>
+      <div class="skill-col reveal">
+        <h4>DESIGN</h4><hr>
+        <ul><li>Figma</li><li>UI/UX</li><li>Information Architecture</li><li>Dashboard Design</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 TOOLS ============ -->
+  <section class="section tools-section" id="tools">
+    <p class="section-label reveal">08 / TOOLS</p>
+    <div class="tools-grid reveal">
+      <span>PYTHON</span><span>MYSQL</span><span>POWER BI</span><span>FIGMA</span>
+      <span>JAVASCRIPT</span><span>JAVA</span><span>QGIS</span><span>GIT</span>
+    </div>
+  </section>
+
+  <!-- ============ 10 JOURNEY ============ -->
+  <section class="section" id="journey">
+    <p class="section-label reveal">09 / JOURNEY</p>
+    <h2 class="section-title reveal">EDUCATION &amp; TIMELINE</h2>
+
+    <ol class="timeline">
+      <li class="timeline-item reveal">
+        <span class="mono-label">2026</span>
+        <div>
+          <h4>BSIT — BUSINESS ANALYTICS</h4>
+          <p>Batangas State University</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="mono-label">2025</span>
+        <div>
+          <h4>CAPSTONE PROJECT</h4>
+          <p>FireSight</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="mono-label">2025</span>
+        <div>
+          <h4>SYSTEM / ANALYTICS PROJECTS</h4>
+          <p>[Add project or coursework details]</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="mono-label">[YEAR]</span>
+        <div>
+          <h4>[CERTIFICATION / SEMINAR / ORG]</h4>
+          <p>[Add detail]</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ 11 BEYOND THE DATA ============ -->
+  <section class="section section--white" id="beyond">
+    <p class="section-label reveal">10 / BEYOND THE DATA</p>
+    <h2 class="section-title reveal">BEYOND THE DATA</h2>
+    <p class="mono-label reveal">WHEN I'M NOT ANALYZING DATA...</p>
+
+    <div class="collage">
+      <div class="collage-item reveal">
+        <img src="https://via.placeholder.com/500x600/D8D3C8/1B365D?text=%5BPHOTO%5D" alt="Design">
+        <p class="caption">DESIGN</p>
+      </div>
+      <div class="collage-item reveal">
+        <img src="https://via.placeholder.com/500x600/D8D3C8/1B365D?text=%5BPHOTO%5D" alt="Technology">
+        <p class="caption">TECHNOLOGY</p>
+      </div>
+      <div class="collage-item reveal">
+        <img src="https://via.placeholder.com/500x600/D8D3C8/1B365D?text=%5BPHOTO%5D" alt="Learning">
+        <p class="caption">LEARNING</p>
+      </div>
+      <div class="collage-item reveal">
+        <img src="https://via.placeholder.com/500x600/D8D3C8/1B365D?text=%5BPHOTO%5D" alt="Community">
+        <p class="caption">COMMUNITY</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12 CONTACT / BACK COVER ============ -->
+  <section class="section section--navy contact-section" id="contact">
+    <h2 class="contact-title reveal">
+      LET'S<br>BUILD<br>SOMETHING<br>MEANINGFUL.
+    </h2>
+
+    <div class="contact-grid reveal">
+      <div>
+        <p class="contact-name">KIMBERLY G. URGE</p>
+        <p class="mono-label">BUSINESS ANALYTICS<br>INFORMATION TECHNOLOGY</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:[EMAIL]">EMAIL →</a>
+        <a href="[LINKEDIN URL]">LINKEDIN →</a>
+        <a href="[GITHUB URL]">GITHUB →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="mono-label">© <span id="year"></span> KIMBERLY G. URGE</p>
+      <p class="mono-label">DATA • SYSTEMS • INSIGHT</p>
+    </div>
+  </section>
 
 </main>
 
-<!-- Bootstrap 5 JS bundle (handles the navbar-collapse mobile menu) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
