@@ -1,13 +1,10 @@
 /* =========================================================
    Kimberly G. Urge — Data, Design & Direction
-   Project data, Journey data, rendering, carousels, modals,
-   plus creative micro-interactions (tilt, road fill, cursor dot)
+   Project data, Journey data, rendering, carousels, modals
    ========================================================= */
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-
 // ---------- 1. PROJECT DATA ----------
+// Edit this array to add / update projects. Sorted newest → oldest automatically.
 const projects = [
   {
     id: "firesight",
@@ -21,7 +18,7 @@ const projects = [
     approach: "Collected and cleaned incident, location, and severity data, then analyzed frequency and spatial distribution to classify risk levels across barangays.",
     output: "A risk map and dashboard that supports decision-making for fire prevention and response planning.",
     learning: "[Add what you personally learned — analytical, technical, or team-related.]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BFIRESIGHT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BFIRESIGHT+SCREENSHOT%5D"
   },
   {
     id: "project-2",
@@ -35,7 +32,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-3",
@@ -49,7 +46,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-4",
@@ -63,7 +60,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-5",
@@ -77,7 +74,7 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
   },
   {
     id: "project-6",
@@ -91,10 +88,11 @@ const projects = [
     approach: "[How did you approach it?]",
     output: "[What was produced?]",
     learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    image: "https://via.placeholder.com/900x600/D8D3C8/0D1B2A?text=%5BPROJECT+SCREENSHOT%5D"
   }
 ];
 
+// Newest first
 projects.sort((a, b) => b.year - a.year);
 
 const INITIAL_COUNT = 4;
@@ -102,6 +100,8 @@ const visibleProjects = projects.slice(0, INITIAL_COUNT);
 const moreProjects = projects.slice(INITIAL_COUNT);
 
 // ---------- 2. JOURNEY DATA (3 categories) ----------
+// Edit these arrays with your real milestones/credentials.
+// Do NOT leave fake info live — replace every [placeholder] before publishing.
 const journeyData = {
   certifications: [
     {
@@ -109,7 +109,7 @@ const journeyData = {
       organization: "[Issuing Organization]",
       year: "2026",
       category: "CERTIFICATION",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BCERTIFICATE%5D",
+      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BCERTIFICATE%5D",
       description: "[Short description of the certification and why it matters.]"
     },
     {
@@ -117,7 +117,7 @@ const journeyData = {
       organization: "[Organization / Competition]",
       year: "2025",
       category: "ACHIEVEMENT",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BACHIEVEMENT%5D",
+      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BACHIEVEMENT%5D",
       description: "[Short description of the achievement.]"
     },
     {
@@ -125,7 +125,7 @@ const journeyData = {
       organization: "[Organization]",
       year: "2025",
       category: "TRAINING",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BTRAINING%5D",
+      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BTRAINING%5D",
       description: "[Short description of the seminar or training.]"
     }
   ],
@@ -135,17 +135,24 @@ const journeyData = {
       role: "[Leadership Role]",
       organization: "[Organization / Project]",
       year: "2026",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D",
+      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D",
       description: "[Short description of the role and what it involved.]",
-      contributions: ["[Contribution 1]", "[Contribution 2]", "[Contribution 3]"]
+      contributions: [
+        "[Contribution 1]",
+        "[Contribution 2]",
+        "[Contribution 3]"
+      ]
     },
     {
       role: "[Leadership Role]",
       organization: "[Organization / Project]",
       year: "2025",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D",
+      image: "https://via.placeholder.com/800x1000/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D",
       description: "[Short description of the role and what it involved.]",
-      contributions: ["[Contribution 1]", "[Contribution 2]"]
+      contributions: [
+        "[Contribution 1]",
+        "[Contribution 2]"
+      ]
     }
   ],
 
@@ -155,7 +162,7 @@ const journeyData = {
       type: "Capstone Project",
       year: "2026",
       role: "Project Lead / Business Analytics",
-      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BFIRESIGHT%5D",
+      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BFIRESIGHT%5D",
       description: "A GIS-based fire incident reporting and risk analytics system built to support fire prevention decision-making.",
       focus: ["GIS", "Data Analytics", "Risk Prediction", "Data Visualization"],
       projectId: "firesight"
@@ -165,7 +172,7 @@ const journeyData = {
       type: "Education",
       year: "2022 – 2026",
       role: "[Your University]",
-      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BEDUCATION%5D",
+      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BEDUCATION%5D",
       description: "[Add relevant coursework, focus areas, or academic milestones.]",
       focus: ["Business Analytics", "Information Systems"],
       projectId: null
@@ -175,7 +182,7 @@ const journeyData = {
       type: "Academic Project",
       year: "2025",
       role: "[Your role]",
-      image: "https://via.placeholder.com/900x1100/DBD4CC/0F3B59?text=%5BPROJECT%5D",
+      image: "https://via.placeholder.com/900x1100/D8D3C8/0D1B2A?text=%5BPROJECT%5D",
       description: "[Short description of the project or research.]",
       focus: ["[Focus 1]", "[Focus 2]"],
       projectId: null
@@ -183,24 +190,7 @@ const journeyData = {
   ]
 };
 
-// ---------- 3. TILT HELPER (project cards + journey cards) ----------
-function applyTilt(el) {
-  if (reduceMotion || !isFinePointer) return;
-  const maxTilt = 6;
-
-  el.addEventListener("mousemove", (e) => {
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    el.style.transform = `perspective(900px) rotateY(${x * maxTilt}deg) rotateX(${-y * maxTilt}deg) translateY(-4px)`;
-  });
-
-  el.addEventListener("mouseleave", () => {
-    el.style.transform = "perspective(900px) rotateY(0) rotateX(0) translateY(0)";
-  });
-}
-
-// ---------- 4. RENDER PROJECT GRID ----------
+// ---------- 3. RENDER PROJECT GRID ----------
 const projectGrid = document.getElementById("projectGrid");
 
 function renderProjectCard(project) {
@@ -221,18 +211,18 @@ function renderProjectCard(project) {
     </span>
   `;
   card.addEventListener("click", () => openModal(project.id));
-  applyTilt(card.querySelector(".project-image"));
   return card;
 }
 
 visibleProjects.forEach((p) => projectGrid.appendChild(renderProjectCard(p)));
 
+// Hide "See more" button if there's nothing extra to show
 const seeMoreBtn = document.getElementById("seeMoreBtn");
 if (moreProjects.length === 0) {
   seeMoreBtn.style.display = "none";
 }
 
-// ---------- 5. RENDER JOURNEY GRID (3 category cards) ----------
+// ---------- 4. RENDER JOURNEY GRID (3 category cards) ----------
 const journeyGrid = document.getElementById("journeyGrid");
 
 const journeyCardMeta = [
@@ -240,26 +230,28 @@ const journeyCardMeta = [
     key: "certifications",
     index: "01",
     title: "CERTIFICATIONS<br>+ ACHIEVEMENTS",
-    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BCERTIFICATIONS%5D"
+    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BCERTIFICATIONS%5D"
   },
   {
     key: "leadership",
     index: "02",
     title: "LEADERSHIP",
-    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BLEADERSHIP%5D"
+    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BLEADERSHIP%5D"
   },
   {
     key: "worksEducation",
     index: "03",
     title: "WORKS<br>+ EDUCATION",
-    image: "https://via.placeholder.com/700x440/DBD4CC/0F3B59?text=%5BWORKS%5D"
+    image: "https://via.placeholder.com/700x440/D8D3C8/0D1B2A?text=%5BWORKS%5D"
   }
 ];
 
 function renderJourneyCard(meta) {
   const items = journeyData[meta.key];
   const preview = items[0];
-  const previewLine = meta.key === "leadership" ? preview.role : (preview.title || "");
+  const previewLine = meta.key === "leadership"
+    ? preview.role
+    : (preview.title || "");
 
   const card = document.createElement("button");
   card.className = "journey-card reveal";
@@ -278,13 +270,12 @@ function renderJourneyCard(meta) {
     <span class="text-btn">EXPLORE →</span>
   `;
   card.addEventListener("click", () => openJourneyModal(meta.key));
-  applyTilt(card);
   return card;
 }
 
 journeyCardMeta.forEach((meta) => journeyGrid.appendChild(renderJourneyCard(meta)));
 
-// ---------- 6. PROJECT DETAIL MODAL ----------
+// ---------- 5. PROJECT DETAIL MODAL ----------
 const projectModal = document.getElementById("projectModal");
 const modalClose = document.getElementById("modalClose");
 
@@ -321,35 +312,21 @@ projectModal.addEventListener("click", (e) => {
   if (e.target === projectModal) closeModal();
 });
 
-// ---------- 7. PROJECT CAROUSEL (with crossfade slide) ----------
+// ---------- 6. PROJECT CAROUSEL (for "See more work") ----------
 const carouselOverlay = document.getElementById("carouselOverlay");
 const carouselClose = document.getElementById("carouselClose");
 const carouselPrev = document.getElementById("carouselPrev");
 const carouselNext = document.getElementById("carouselNext");
 const carouselDetailsBtn = document.getElementById("carouselDetailsBtn");
-const carouselImgEl = document.getElementById("carouselImg");
 
 let carouselIndex = 0;
-
-function crossfadeImage(imgEl, newSrc, newAlt) {
-  if (reduceMotion) {
-    imgEl.src = newSrc;
-    imgEl.alt = newAlt;
-    return;
-  }
-  imgEl.classList.add("is-swapping");
-  setTimeout(() => {
-    imgEl.src = newSrc;
-    imgEl.alt = newAlt;
-    imgEl.classList.remove("is-swapping");
-  }, 180);
-}
 
 function renderCarouselSlide() {
   if (moreProjects.length === 0) return;
   const project = moreProjects[carouselIndex];
 
-  crossfadeImage(carouselImgEl, project.image, `${project.title} screenshot`);
+  document.getElementById("carouselImg").src = project.image;
+  document.getElementById("carouselImg").alt = `${project.title} screenshot`;
   document.getElementById("carouselYear").textContent = project.year;
   document.getElementById("carouselTitle").textContent = project.title;
   document.getElementById("carouselCat").textContent = project.category;
@@ -393,11 +370,10 @@ carouselDetailsBtn.addEventListener("click", () => {
   openModal(project.id);
 });
 
-// ---------- 8. JOURNEY MODAL — landscape spread + per-category carousel ----------
+// ---------- 7. JOURNEY MODAL — landscape spread + per-category carousel ----------
 const journeyModal = document.getElementById("journeyModal");
 const journeyModalClose = document.getElementById("journeyModalClose");
 const journeyViewProject = document.getElementById("journeyViewProject");
-const journeyModalImgEl = document.getElementById("journeyModalImg");
 
 const journeyCategoryLabels = {
   certifications: "01 / CERTIFICATIONS + ACHIEVEMENTS",
@@ -415,7 +391,8 @@ function renderJourneySlide() {
   const indexText = `${String(journeyActiveIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
 
   document.getElementById("journeyModalCategory").textContent = journeyCategoryLabels[journeyActiveCategory];
-  crossfadeImage(journeyModalImgEl, item.image, item.title || item.role || "");
+  document.getElementById("journeyModalImg").src = item.image;
+  document.getElementById("journeyModalImg").alt = item.title || item.role || "";
   document.getElementById("journeyIndexMobile").textContent = indexText;
   document.getElementById("journeyIndexDesktop").textContent = indexText;
   document.getElementById("journeyModalYear").textContent = item.year;
@@ -522,7 +499,7 @@ journeyMedia.addEventListener("touchend", (e) => {
   }
 }, { passive: true });
 
-// ---------- 9. GLOBAL ESCAPE / ARROW KEYS FOR OVERLAYS ----------
+// ---------- 8. GLOBAL ESCAPE / ARROW KEYS FOR OVERLAYS ----------
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeModal();
@@ -539,7 +516,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// ---------- 10. MOBILE NAV TOGGLE ----------
+// ---------- 9. MOBILE NAV TOGGLE ----------
 const navToggle = document.getElementById("navToggle");
 const mobileNav = document.getElementById("mobileNav");
 
@@ -554,68 +531,22 @@ mobileNav.querySelectorAll("a").forEach((link) => {
   });
 });
 
-// ---------- 11. FOOTER YEAR ----------
+// ---------- 10. FOOTER YEAR ----------
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ---------- 12. SCROLL-REVEAL (also triggers road fill) ----------
+// ---------- 11. SCROLL-REVEAL ----------
 const revealEls = document.querySelectorAll(".reveal");
-const roadTrack = document.getElementById("roadTrack");
-
 if ("IntersectionObserver" in window && revealEls.length) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
-
-        // Trigger the accent line fill + dots shortly after the road reveals
-        if (entry.target === roadTrack) {
-          setTimeout(() => roadTrack.classList.add("is-filled"), 500);
-        }
       }
     });
   }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
   revealEls.forEach((el) => observer.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add("is-visible"));
-  if (roadTrack) roadTrack.classList.add("is-filled");
-}
-
-// ---------- 13. CURSOR-FOLLOW ACCENT DOT (hero only, desktop) ----------
-const heroSection = document.getElementById("hero");
-const cursorDot = document.getElementById("heroCursorDot");
-
-if (!reduceMotion && isFinePointer && heroSection && cursorDot) {
-  let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0;
-  let ticking = false;
-
-  heroSection.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorDot.classList.add("is-active");
-    if (!ticking) {
-      requestAnimationFrame(animateDot);
-      ticking = true;
-    }
-  });
-
-  heroSection.addEventListener("mouseleave", () => {
-    cursorDot.classList.remove("is-active");
-  });
-
-  function animateDot() {
-    dotX += (mouseX - dotX) * 0.18;
-    dotY += (mouseY - dotY) * 0.18;
-    cursorDot.style.left = `${dotX}px`;
-    cursorDot.style.top = `${dotY}px`;
-
-    if (Math.abs(mouseX - dotX) > 0.5 || Math.abs(mouseY - dotY) > 0.5) {
-      requestAnimationFrame(animateDot);
-    } else {
-      ticking = false;
-    }
-  }
-} else if (cursorDot) {
-  cursorDot.style.display = "none";
 }
