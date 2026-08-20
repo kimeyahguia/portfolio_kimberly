@@ -50,12 +50,14 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
+    <span class="cursor-dot" id="heroCursorDot" aria-hidden="true"></span>
+
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
         <h1 class="hero-title">
-          DATA<br>
-          DESIGN<br>
-          &amp; DIRECTION
+          <span class="line"><span class="line-inner">DATA</span></span>
+          <span class="line"><span class="line-inner">DESIGN</span></span>
+          <span class="line"><span class="line-inner">&amp; DIRECTION</span></span>
         </h1>
         <p class="hero-statement">
           Building insights, experiences, and solutions through data, design, and direction.
@@ -69,7 +71,7 @@
 
       <div class="hero-photo reveal">
         <div class="photo-frame">
-          <img src="https://via.placeholder.com/560x680/D8D3C8/1B365D?text=%5BYOUR+PHOTO%5D" alt="Portrait of Kimberly G. Urge">
+          <img src="https://via.placeholder.com/560x680/DBD4CC/0F3B59?text=%5BYOUR+PHOTO%5D" alt="Portrait of Kimberly G. Urge">
         </div>
         <p class="caption">KIMBERLY / 4TH YEAR / 2026</p>
       </div>
@@ -122,7 +124,8 @@
       <p class="section-label reveal">MY APPROACH</p>
       <h2 class="section-title section-title--sm reveal">HOW A PROJECT MOVES FORWARD</h2>
 
-      <ol class="road reveal" aria-label="My approach, from data to direction">
+      <ol class="road reveal" id="roadTrack" aria-label="My approach, from data to direction">
+        <span class="road-line-fill" id="roadFill" aria-hidden="true"></span>
         <li class="road-node">
           <span class="road-dot"></span>
           <span class="road-label mono-label">DATA</span>
@@ -221,15 +224,19 @@
     </div>
   </section>
 
-  <!-- ============ JOURNEY ============ -->
+  <!-- ============ JOURNEY — 3-CATEGORY EDITORIAL GRID ============ -->
   <section class="section" id="journey">
     <div class="wrap">
       <p class="section-label reveal">04 / JOURNEY</p>
-      <h2 class="section-title reveal">HOW I GOT HERE</h2>
+      <h2 class="section-title reveal">THINGS I'VE BUILT,<br>LEARNED &amp; LED</h2>
+      <p class="journey-intro reveal">
+        A collection of milestones, experiences, and work that shaped how I approach
+        data, design, technology, and people.
+      </p>
 
-      <ol class="timeline" id="timelineList">
-        <!-- populated by script.js, most recent first -->
-      </ol>
+      <div class="journey-grid" id="journeyGrid">
+        <!-- populated by script.js -->
+      </div>
     </div>
   </section>
 
@@ -245,8 +252,15 @@
         </div>
         <div class="contact-links">
           <a href="mailto:kimberlyurgeee@gmail.com">EMAIL →</a>
-          <a href="https://github.com/kimeyahguia">GITHUB →</a>
-          <a href="www.linkedin.com/in/kimberly-urge">LINKEDIN →</a>
+          <a href="https://github.com/kimeyahguia" target="_blank" rel="noopener">GITHUB →</a>
+          <a href="https://www.linkedin.com/in/kimberly-urge" target="_blank" rel="noopener">LINKEDIN →</a>
+        </div>
+      </div>
+
+      <div class="marquee reveal" aria-hidden="true">
+        <div class="marquee-track">
+          <span>DATA • DESIGN • DIRECTION • DATA • DESIGN • DIRECTION •</span>
+          <span>DATA • DESIGN • DIRECTION • DATA • DESIGN • DIRECTION •</span>
         </div>
       </div>
 
@@ -327,6 +341,63 @@
         <p class="mono-label">LEARNINGS</p>
         <p id="modalLearning"></p>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ JOURNEY MODAL — landscape editorial spread ============ -->
+<div class="overlay" id="journeyModal" aria-hidden="true">
+  <div class="overlay-panel journey-panel" role="dialog" aria-modal="true" aria-labelledby="journeyModalTitle">
+
+    <div class="journey-modal-header">
+      <p class="mono-label" id="journeyModalCategory"></p>
+      <button class="overlay-close" id="journeyModalClose" aria-label="Close">✕</button>
+    </div>
+
+    <div class="journey-modal-body">
+
+      <div class="journey-modal-media">
+        <img id="journeyModalImg" src="" alt="">
+        <div class="journey-modal-nav journey-modal-nav--mobile">
+          <button id="journeyPrevMobile" aria-label="Previous">←</button>
+          <span class="mono-label" id="journeyIndexMobile">01 / 01</span>
+          <button id="journeyNextMobile" aria-label="Next">→</button>
+        </div>
+      </div>
+
+      <div class="journey-modal-info">
+        <h3 id="journeyModalTitle"></h3>
+        <p class="project-cat" id="journeyModalSubtitle"></p>
+
+        <div class="journey-field" id="journeyFieldOrg">
+          <p class="mono-label" id="journeyFieldOrgLabel">ISSUED BY</p>
+          <p id="journeyModalOrg"></p>
+        </div>
+
+        <div class="journey-field">
+          <p class="mono-label">YEAR</p>
+          <p id="journeyModalYear"></p>
+        </div>
+
+        <div class="journey-field">
+          <p class="mono-label">DESCRIPTION</p>
+          <p id="journeyModalDesc"></p>
+        </div>
+
+        <div class="journey-field" id="journeyFieldList">
+          <p class="mono-label" id="journeyFieldListLabel">KEY CONTRIBUTIONS</p>
+          <ul id="journeyModalList"></ul>
+        </div>
+
+        <a class="text-btn journey-view-project" id="journeyViewProject" href="#work" style="display:none;">VIEW PROJECT →</a>
+
+        <div class="journey-modal-nav journey-modal-nav--desktop">
+          <button id="journeyPrevDesktop" aria-label="Previous">←</button>
+          <span class="mono-label" id="journeyIndexDesktop">01 / 01</span>
+          <button id="journeyNextDesktop" aria-label="Next">→</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
