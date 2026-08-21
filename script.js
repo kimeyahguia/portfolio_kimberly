@@ -32,7 +32,7 @@ const projects = [
     year: 2025,
     title: "Elementary Portal CDS",
     category: "WEB DEVELOPMENT / EDUCATION / DATA ANALYTICS",
-    role: "Developer / Team Member",
+    role: "Developer / Team Member / Business Analytics",
     description:
       "A web-based school information portal developed for Creative Dreams School that integrates student information and performance prediction using the Random Forest algorithm.",
     tools: "PHP • MySQL • HTML • CSS • JavaScript • Random Forest",
@@ -53,7 +53,7 @@ const projects = [
     year: 2025,
     title: "Dampa Website",
     category: "WEB DEVELOPMENT / BOOKING SYSTEM",
-    role: "Developer / Team Member",
+    role: "Project Lead / Developer / Team Member",
     description:
       "A web-based booking and reservation system designed for Dampa sa Tabing Dagat Resort to help manage customer reservations and booking information.",
     tools: "PHP • MySQL • HTML • CSS • JavaScript",
@@ -74,7 +74,7 @@ const projects = [
     year: 2025,
     title: "TeleClinicMed",
     category: "JAVA / CLINIC MANAGEMENT / INFORMATION SYSTEM",
-    role: "Developer / Team Member",
+    role: "Project Lead / Developer / Team Member",
     description:
       "A clinic management system designed to support appointments, prescriptions, medicine sales, and internal communication between patients, doctors, and clinic staff.",
     tools: "Java • MySQL",
@@ -92,7 +92,7 @@ const projects = [
 
   {
     id: "vroomski-rents",
-    year: 2025,
+    year: 2024,
     title: "Vroomski Rents",
     category: "JAVA / VEHICLE RENTAL / INFORMATION SYSTEM",
     role: "Developer / Team Member",
