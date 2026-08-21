@@ -4,21 +4,21 @@
    ========================================================= */
 
 :root {
-  /* ---- Palette: Yale Blue / Cool Steel / Dust Grey / Goldenrod / Dark Coffee ---- */
-  --yale-blue: #0F3B59;
-  --cool-steel: #7D929E;
-  --dust-grey: #DBD4CC;
-  --goldenrod: #DBA12C;
-  --dark-coffee: #3E251E;
+  /* ---- Palette: Off-White / Mystic Navy / Red Inferno ---- */
+  --off-white: #FAF7F2;
+  --mystic-navy: #13273F;
+  --red-inferno: #4E0000;
+  --cool-steel: #7D929E;   /* kept as neutral accent for borders/small text */
+  --dust-grey: #DBD4CC;    /* kept for subtle borders */
 
-  --cream: #EDE7DB;        /* Dust Grey, lightened slightly for body-copy contrast */
-  --navy: #0F3B59;         /* Yale Blue — headings & primary text */
-  --navy-2: #3E251E;       /* Dark Coffee — secondary accent, links, labels */
-  --gray: #5B6B74;         /* Cool Steel, deepened for legible small text */
-  --steel: #7D929E;        /* Cool Steel — decorative accents, icons on dark bg */
-  --gold: #DBA12C;         /* Goldenrod — highlight / CTA accent */
+  --cream: #FAF7F2;        /* Off-White base */
+  --navy: #13273F;         /* Mystic Navy — headings & primary text */
+  --navy-2: #4E0000;       /* Red Inferno — secondary accent, links, labels */
+  --gray: #5B6B74;         /* muted steel for legible small text */
+  --steel: #7D929E;        /* decorative accents, icons on dark bg */
+  --gold: #4E0000;         /* Red Inferno now doubles as the CTA/highlight accent */
   --white: #FFFFFF;
-  --border: #DBD4CC;       /* Dust Grey */
+  --border: #DBD4CC;       /* Dust Grey, kept for hairline borders */
 
   --maxw: 1280px;
   --radius-sm: 6px;
