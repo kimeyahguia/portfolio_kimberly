@@ -86,8 +86,12 @@ const projects = [
       "A clinic management system supporting appointment scheduling, prescriptions, medicine sales, and internal clinic communication.",
     learning:
       "Learned how to structure a larger Java-based information system and translate real-world healthcare workflows into software features.",
-    image:
-      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=TELECLINICMED"
+    image: "assets/teleclinic1.png",
+    images: [
+      "assets/teleclinic1.png",
+      "assets/teleclinic2.png",
+      "assets/teleclinic3.png"
+    ]
   },
 
   {
@@ -107,8 +111,12 @@ const projects = [
       "A digital vehicle rental system designed to streamline vehicle rental management and provide a more efficient user experience.",
     learning:
       "Learned how to translate a traditional business process into a functional information system while strengthening Java development and system design skills.",
-    image:
-      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=VROOMSKI+RENTS"
+    image: "assets/vroomski1.png",
+    images: [
+      "assets/vroomski1.png",
+      "assets/vroomski2.png",
+      "assets/vroomski3.png"
+    ]
   }
 ];
 
@@ -306,13 +314,45 @@ journeyCardMeta.forEach((meta) => journeyGrid.appendChild(renderJourneyCard(meta
 // ---------- 5. PROJECT DETAIL MODAL ----------
 const projectModal = document.getElementById("projectModal");
 const modalClose = document.getElementById("modalClose");
+const modalImg = document.getElementById("modalImg");
+const modalMediaNav = document.getElementById("modalMediaNav");
+const modalImgIndexEl = document.getElementById("modalImgIndex");
+const modalImgPrev = document.getElementById("modalImgPrev");
+const modalImgNext = document.getElementById("modalImgNext");
+
+let modalImages = [];
+let modalImageIndex = 0;
+
+function renderModalImage() {
+  const total = modalImages.length;
+  modalImg.src = modalImages[modalImageIndex];
+  modalImgIndexEl.textContent = `${String(modalImageIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  // Hide prev/next/counter entirely when there's only one image
+  modalMediaNav.classList.toggle("is-single", total <= 1);
+}
+
+function modalImagePrev() {
+  modalImageIndex = (modalImageIndex - 1 + modalImages.length) % modalImages.length;
+  renderModalImage();
+}
+function modalImageNext() {
+  modalImageIndex = (modalImageIndex + 1) % modalImages.length;
+  renderModalImage();
+}
+
+modalImgPrev.addEventListener("click", modalImagePrev);
+modalImgNext.addEventListener("click", modalImageNext);
 
 function openModal(projectId) {
   const project = projects.find((p) => p.id === projectId);
   if (!project) return;
 
-  document.getElementById("modalImg").src = project.image;
-  document.getElementById("modalImg").alt = `${project.title} screenshot`;
+  // Use the project's full gallery if it has one, otherwise fall back to the single cover image
+  modalImages = project.images && project.images.length ? project.images : [project.image];
+  modalImageIndex = 0;
+  modalImg.alt = `${project.title} screenshot`;
+  renderModalImage();
+
   document.getElementById("modalMeta").textContent = `${project.year} / ${project.role}`;
   document.getElementById("modalTitle").textContent = project.title;
   document.getElementById("modalCat").textContent = project.category;
@@ -339,6 +379,19 @@ modalClose.addEventListener("click", closeModal);
 projectModal.addEventListener("click", (e) => {
   if (e.target === projectModal) closeModal();
 });
+
+// Touch swipe support for the project modal image area
+let modalTouchStartX = 0;
+document.querySelector(".modal-media").addEventListener("touchstart", (e) => {
+  modalTouchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+document.querySelector(".modal-media").addEventListener("touchend", (e) => {
+  const diff = e.changedTouches[0].screenX - modalTouchStartX;
+  if (Math.abs(diff) > 40) {
+    if (diff > 0) modalImagePrev();
+    else modalImageNext();
+  }
+}, { passive: true });
 
 // ---------- 6. PROJECT CAROUSEL (for "See more work") ----------
 const carouselOverlay = document.getElementById("carouselOverlay");
@@ -541,6 +594,10 @@ document.addEventListener("keydown", (e) => {
   if (carouselOverlay.classList.contains("is-open")) {
     if (e.key === "ArrowLeft") carouselPrev.click();
     if (e.key === "ArrowRight") carouselNext.click();
+  }
+  if (projectModal.classList.contains("is-open")) {
+    if (e.key === "ArrowLeft") modalImagePrev();
+    if (e.key === "ArrowRight") modalImageNext();
   }
 });
 
