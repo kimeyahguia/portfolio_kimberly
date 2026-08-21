@@ -12,83 +12,103 @@ const projects = [
     title: "FireSight",
     category: "GIS / DATA ANALYTICS / DECISION SUPPORT",
     role: "Project Lead / Business Analytics",
-    description: "A GIS-based system that analyzes historical fire incident data to help identify areas with higher fire risk.",
+    description:
+      "A GIS-based system that analyzes historical fire incident data to help identify areas with higher fire risk and support fire prevention and response planning.",
     tools: "Python • MySQL • GIS • Power BI • JavaScript",
-    problem: "How can historical fire incident data help identify areas with higher fire risk?",
-    approach: "Collected and cleaned incident, location, and severity data, then analyzed frequency and spatial distribution to classify risk levels across barangays.",
-    output: "A risk map and dashboard that supports decision-making for fire prevention and response planning.",
-    learning: "[Add what you personally learned — analytical, technical, or team-related.]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BFIRESIGHT+SCREENSHOT%5D"
+    problem:
+      "How can historical fire incident data help identify areas with higher fire risk?",
+    approach:
+      "Collected, cleaned, and analyzed historical fire incident data based on frequency, location, and severity. GIS-based visualization was then used to identify and classify fire risk across barangays.",
+    output:
+      "A GIS-based risk map and analytics dashboard designed to support fire prevention, incident monitoring, and response planning.",
+    learning:
+      "Learned how to combine business analytics, GIS, system development, and team coordination to build a solution for a real-world community problem.",
+    image:
+      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=FIRESIGHT"
   },
+
   {
-    id: "project-2",
+    id: "elementary-portal-cds",
     year: 2025,
-    title: "[Project Name]",
-    category: "BUSINESS ANALYTICS / DASHBOARD",
-    role: "[Your role]",
-    description: "[Short description of the project.]",
-    tools: "[Tools used]",
-    problem: "[What problem did this address?]",
-    approach: "[How did you approach it?]",
-    output: "[What was produced?]",
-    learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    title: "Elementary Portal CDS",
+    category: "WEB DEVELOPMENT / EDUCATION / DATA ANALYTICS",
+    role: "Developer / Team Member",
+    description:
+      "A web-based school information portal developed for Creative Dreams School that integrates student information and performance prediction using the Random Forest algorithm.",
+    tools: "PHP • MySQL • HTML • CSS • JavaScript • Random Forest",
+    problem:
+      "How can a school information portal help manage student information while providing insights into student academic performance?",
+    approach:
+      "Developed a web-based platform that organizes school-related information and incorporates student performance data for analysis and prediction using a machine learning approach.",
+    output:
+      "A school information portal with student-related information management and a performance prediction feature using the Random Forest algorithm.",
+    learning:
+      "Learned how web development and basic machine learning can be combined to create an information system that provides useful academic insights.",
+    image:
+      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=ELEMENTARY+PORTAL"
   },
+
   {
-    id: "project-3",
+    id: "dampa-website",
     year: 2025,
-    title: "[Project Name]",
-    category: "UI/UX / PROTOTYPE",
-    role: "[Your role]",
-    description: "[Short description of the project.]",
-    tools: "[Tools used]",
-    problem: "[What problem did this address?]",
-    approach: "[How did you approach it?]",
-    output: "[What was produced?]",
-    learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    title: "Dampa Website",
+    category: "WEB DEVELOPMENT / BOOKING SYSTEM",
+    role: "Developer / Team Member",
+    description:
+      "A web-based booking and reservation system designed for Dampa sa Tabing Dagat Resort to help manage customer reservations and booking information.",
+    tools: "PHP • MySQL • HTML • CSS • JavaScript",
+    problem:
+      "How can a resort improve the management of customer bookings and reservations through a centralized web-based system?",
+    approach:
+      "Designed and developed a web-based platform where customers can access resort information and submit booking or reservation requests through a centralized system.",
+    output:
+      "A resort website with an integrated booking and reservation system for managing customer requests and reservation information.",
+    learning:
+      "Learned how to design a practical information system around a real business workflow while improving skills in web development and database integration.",
+    image:
+      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=DAMPA+WEBSITE"
   },
+
   {
-    id: "project-4",
-    year: 2024,
-    title: "[Project Name]",
-    category: "INFORMATION SYSTEMS",
-    role: "[Your role]",
-    description: "[Short description of the project.]",
-    tools: "[Tools used]",
-    problem: "[What problem did this address?]",
-    approach: "[How did you approach it?]",
-    output: "[What was produced?]",
-    learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    id: "teleclinicmed",
+    year: 2025,
+    title: "TeleClinicMed",
+    category: "JAVA / CLINIC MANAGEMENT / INFORMATION SYSTEM",
+    role: "Developer / Team Member",
+    description:
+      "A clinic management system designed to support appointments, prescriptions, medicine sales, and internal communication between patients, doctors, and clinic staff.",
+    tools: "Java • MySQL",
+    problem:
+      "How can a digital clinic management system organize appointments, medical information, prescriptions, and medicine transactions?",
+    approach:
+      "Developed a centralized clinic management application that organizes different clinic processes and provides digital support for patient and staff interactions.",
+    output:
+      "A clinic management system supporting appointment scheduling, prescriptions, medicine sales, and internal clinic communication.",
+    learning:
+      "Learned how to structure a larger Java-based information system and translate real-world healthcare workflows into software features.",
+    image:
+      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=TELECLINICMED"
   },
+
   {
-    id: "project-5",
-    year: 2024,
-    title: "[Project Name]",
-    category: "WEB DEVELOPMENT",
-    role: "[Your role]",
-    description: "[Short description of the project.]",
-    tools: "[Tools used]",
-    problem: "[What problem did this address?]",
-    approach: "[How did you approach it?]",
-    output: "[What was produced?]",
-    learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
-  },
-  {
-    id: "project-6",
-    year: 2023,
-    title: "[Project Name]",
-    category: "RESEARCH / DOCUMENTATION",
-    role: "[Your role]",
-    description: "[Short description of the project.]",
-    tools: "[Tools used]",
-    problem: "[What problem did this address?]",
-    approach: "[How did you approach it?]",
-    output: "[What was produced?]",
-    learning: "[What did you learn?]",
-    image: "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=%5BPROJECT+SCREENSHOT%5D"
+    id: "vroomski-rents",
+    year: 2025,
+    title: "Vroomski Rents",
+    category: "JAVA / VEHICLE RENTAL / INFORMATION SYSTEM",
+    role: "Developer / Team Member",
+    description:
+      "A vehicle rental system designed to transform the traditional vehicle rental process into a more organized and efficient digital experience.",
+    tools: "Java • MySQL",
+    problem:
+      "How can a digital vehicle rental system make the rental process more organized, efficient, and convenient?",
+    approach:
+      "Developed a vehicle rental application that digitally manages vehicle-related rental processes and organizes information needed for transactions.",
+    output:
+      "A digital vehicle rental system designed to streamline vehicle rental management and provide a more efficient user experience.",
+    learning:
+      "Learned how to translate a traditional business process into a functional information system while strengthening Java development and system design skills.",
+    image:
+      "https://via.placeholder.com/900x600/DBD4CC/0F3B59?text=VROOMSKI+RENTS"
   }
 ];
 
