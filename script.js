@@ -123,30 +123,38 @@ const moreProjects = projects.slice(INITIAL_COUNT);
 // Edit these arrays with your real milestones/credentials.
 // Do NOT leave fake info live — replace every [placeholder] before publishing.
 const journeyData = {
-  certifications: [
+    certifications: [
     {
-      title: "[Certification Name]",
-      organization: "[Issuing Organization]",
-      year: "2026",
+      title: "[Data Analytics Certification]",
+      organization: "[Issuing Platform/Org]",
+      year: "2025",
       category: "CERTIFICATION",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BCERTIFICATE%5D",
-      description: "[Short description of the certification and why it matters.]"
+      image: "assets/dataanalytics.png",
+      description: "[Short description — what this data analytics cert covered.]"
     },
     {
-      title: "[Achievement / Award]",
-      organization: "[Organization / Competition]",
+      title: "[SIKAP Talino Certificate]",
+      organization: "[Issuing Org / Event]",
       year: "2025",
       category: "ACHIEVEMENT",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BACHIEVEMENT%5D",
-      description: "[Short description of the achievement.]"
+      image: "assets/sikaptalacert.png",
+      description: "[Short description of the SIKAP Talino recognition/award.]"
     },
     {
-      title: "[Seminar / Training]",
-      organization: "[Organization]",
+      title: "Microsoft Office Specialist — Excel",
+      organization: "Microsoft",
+      year: "2025",
+      category: "CERTIFICATION",
+      image: "assets/microsoftspecialistexcel.png",
+      description: "[Short description — e.g. certified proficiency in Excel for data analysis and reporting.]"
+    },
+    {
+      title: "[Device Configuration Certificate]",
+      organization: "[Issuing Org]",
       year: "2025",
       category: "TRAINING",
-      image: "https://via.placeholder.com/800x1000/DBD4CC/0F3B59?text=%5BTRAINING%5D",
-      description: "[Short description of the seminar or training.]"
+      image: "assets/deviceconfi.png",
+      description: "[Short description of the device configuration training.]"
     }
   ],
 
